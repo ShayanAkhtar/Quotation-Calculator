@@ -1,0 +1,220 @@
+﻿@page "/addquotation"
+@using ClassLibraryModel;
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Add Quotation</PageTitle>
+
+<h1>Add Quotation</h1>
+
+<EditForm Model="quotation" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-row">
+    <div class="form-group">
+        <label for="CustomerName">Customer Name</label>
+        <InputText id="CustomerName" @bind-Value="quotation.CustomerName" />
+    </div>
+
+    <div class="form-group">
+        <label for="QTNumber">QT#</label>
+        <InputText id="QTNumber" @bind-Value="quotation.QTNumber" />
+    </div>
+        <div class="form-group">
+            <label for="MobileNumber">Mobile Number</label>
+            <InputText id="MobileNumber" @bind-Value="quotation.MobileNumber" />
+        </div>
+    </div>
+
+
+        <div class="form-group address-group">
+            <label for="Address">Address</label>
+            <InputText id="Address" @bind-Value="quotation.Address" />
+        </div>
+
+
+    <div class="form-group date-group">
+        <label for="Date">Date</label>
+        <InputDate id="Date" @bind-Value="quotation.Date" />
+    </div>
+
+    <div>
+        <label for="Remarks">Remarks</label>
+        <InputTextArea id="Remarks" @bind-Value="quotation.Remarks" />
+    </div>
+
+    <h3>Add Item Details</h3>
+
+    <div class="form-group select-group">
+        <label for="Type">Select Type</label>
+        <select name="Type" @bind="newItem.Type" id="Type">
+            <option value="none" selected disabled hidden>Select an Option</option>
+            <option value="Sliding">Sliding</option>
+            <option value="Fix">Fix</option>
+            <option value="Openable">Openable</option>
+            <option value="Door">Door</option>
+            <option value="Swing Door">Swing Door</option>
+        </select>
+    </div>
+
+
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="Width">Width</label>
+            <InputNumber id="Width" @bind-Value="newItem.Width" />
+        </div>
+
+        <div class="form-group">
+            <label for="Height">Height</label>
+            <InputNumber id="Height" @bind-Value="newItem.Height" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="GlassSelection">Select Glass</label>
+        <select id="GlassSelection" @bind="selectedGlassId">
+            <option value="0" selected disabled hidden>Select Glass</option>
+            @foreach (var glass in glassList)
+            {
+                <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
+            }
+        </select>
+    </div>
+
+
+    <button type="button" @onclick="AddItemToList">Add Item to List</button>
+
+    <h3>Items List</h3>
+    <table class="item-table">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>SQFT</th>
+                <th>3W</th>
+                <th>3H</th>
+                <th>6W</th>
+                <th>6H</th>
+                <th>3"SQFT</th>
+                <th>6"SQFT</th>
+                <th>Glass Color</th>
+                <th>Windows Amount</th>
+                <th>Glass Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in quotation.Items)
+            {
+                <tr>
+                    <td>@item.Type</td>
+                    <td>@item.Width</td>
+                    <td>@item.Height</td>
+                    <td>@item.SQFT</td>
+                    <td>@item.W3</td>
+                    <td>@item.H3</td>
+                    <td>@item.W6</td>
+                    <td>@item.H6</td>
+                    <td>@item.SQFT3</td>
+                    <td>@item.SQFT6</td>
+                    <td>@item.Glass.GColor</td>
+                    <td>@item.WindowsAmount</td>
+                    <td>@item.GlassAmount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <button class="Submit-button" type="submit">Submit</button>
+</EditForm>
+
+@code {
+    private Quotation quotation = new Quotation();
+    private ItemDetails newItem = new ItemDetails { Glass = new GlassDetails() };
+    int selectedGlassId { get; set; }
+    List<GlassDetails> glassList = new List<GlassDetails>
+    {
+        new GlassDetails { GId = 1, GColor = "Clear", Rate = 20.0f, Thickness = 5.0f },
+        new GlassDetails { GId = 2, GColor = "Tinted", Rate = 25.0f, Thickness = 6.0f },
+    };
+
+
+    private float CalculateSQFT(float w,float h)
+    {
+        return (w * h) / 144;
+    }
+
+    private float CalculateStandard(float  orignalValue,int standard)
+    {
+        var remainder = orignalValue %  standard;
+        if(remainder==0)
+        {
+            return orignalValue;
+        }
+        else
+        {
+            return orignalValue +(standard- remainder);
+        }
+    }
+
+    private void HandleGlassSelection()
+    {
+        GlassDetails selectedGlass = new GlassDetails();
+        foreach (var glass in glassList)
+        {
+            if (selectedGlassId == glass.GId)
+            {
+                selectedGlass = glass;
+            }
+        }
+
+        if (selectedGlass != null)
+        {
+            newItem.Glass = selectedGlass;
+        }
+        else
+        {
+            newItem.Glass = new GlassDetails();
+        }
+    }
+
+    private void CalculateAllValues()
+    {
+        Random random = new Random();
+        newItem.SQFT = CalculateSQFT(newItem.Width, newItem.Height);
+        newItem.W3 = CalculateStandard(newItem.Width, 3);
+        newItem.H3 = CalculateStandard(newItem.Height, 3);
+        newItem.W6 = CalculateStandard(newItem.Width, 6);
+        newItem.H6 = CalculateStandard(newItem.Height, 6);
+        newItem.SQFT3 = CalculateSQFT(newItem.W3, newItem.H3);
+        newItem.SQFT6 = CalculateSQFT(newItem.W6, newItem.H6);
+        newItem.WindowsAmount=newItem.SQFT3*100;
+        newItem.GlassAmount = newItem.SQFT3 * 200; ;
+    }
+
+    private void AddItemToList()
+    {
+        CalculateAllValues();
+        HandleGlassSelection();
+        if (newItem.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
+    || string.IsNullOrEmpty(quotation.QTNumber) || string.IsNullOrEmpty(quotation.MobileNumber)
+    || string.IsNullOrEmpty(quotation.CustomerName))
+        {
+            JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
+        }
+
+        else
+        {
+            quotation.Items.Add(newItem);
+
+        }
+        newItem = new ItemDetails { Glass = new GlassDetails() };
+    }
+
+    async Task HandleValidSubmit()
+
+    {
+        await JSRuntime.InvokeVoidAsync("alert", "Form submitted successfully!");
+    }
+}

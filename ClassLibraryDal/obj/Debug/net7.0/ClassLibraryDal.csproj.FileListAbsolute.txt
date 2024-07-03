@@ -1,0 +1,11 @@
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryDal.deps.json
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryDal.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryDal.pdb
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.AssemblyInfoInputs.cache
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.AssemblyInfo.cs
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.csproj.CoreCompileInputs.cache
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\refint\ClassLibraryDal.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.pdb
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ref\ClassLibraryDal.dll

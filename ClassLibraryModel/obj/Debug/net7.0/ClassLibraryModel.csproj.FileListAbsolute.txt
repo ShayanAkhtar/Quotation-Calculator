@@ -1,0 +1,11 @@
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\bin\Debug\net7.0\ClassLibraryModel.deps.json
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\bin\Debug\net7.0\ClassLibraryModel.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\bin\Debug\net7.0\ClassLibraryModel.pdb
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.AssemblyInfoInputs.cache
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.AssemblyInfo.cs
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.csproj.CoreCompileInputs.cache
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\refint\ClassLibraryModel.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.pdb
+D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ref\ClassLibraryModel.dll
