@@ -1,0 +1,49 @@
+﻿@page "/addwindowdetails"
+
+<h3>Add Window Details</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <EditForm Model="@windowDetails" OnValidSubmit="@HandleSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="typeInput">Type</label>
+                <InputText id="typeInput" class="form-control" @bind-Value="windowDetails.Type" />
+            </div>
+            <div class="form-group">
+                <label for="rateInput">Rate</label>
+                <InputNumber id="rateInput" class="form-control" @bind-Value="windowDetails.Rate" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private WindowDetails windowDetails = new WindowDetails();
+
+    private async Task HandleSubmit()
+    {
+        if (string.IsNullOrEmpty(windowDetails.Type) || windowDetails.Rate == 0)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Please Enter Valid Details");
+            return;
+        }
+
+        List<WindowDetails> data = DalWindowDetails.GetAllWindowDetails();
+        bool existingWindow = false;
+        existingWindow = data.Any(window => window.Type == windowDetails.Type && window.Rate == windowDetails.Rate);
+
+        if (existingWindow)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Record Already Exists");
+        }
+        else
+        {
+            DalWindowDetails.AddWindowDetails(windowDetails);
+            await JSRuntime.InvokeVoidAsync("alert", "Added Successfully");
+        }
+    }
+}

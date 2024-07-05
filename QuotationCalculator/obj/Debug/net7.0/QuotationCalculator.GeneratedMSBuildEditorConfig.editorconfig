@@ -20,12 +20,32 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/AddGlassDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkR2xhc3NEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/AddQuotation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUXVvdGF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/AddWindowsDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkV2luZG93c0RldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/ShowGlassDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd0dsYXNzRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/ShowWindowDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd1dpbmRvd0RldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/Signup.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Visual Studio/QuotationCalculator/QuotationCalculator/Shared/SurveyPrompt.razor]

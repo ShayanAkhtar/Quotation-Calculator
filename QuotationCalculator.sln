@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDal", "ClassLibraryDal\ClassLibraryDal.csproj", "{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryDal", "ClassLibraryDal\ClassLibraryDal.csproj", "{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryModel", "ClassLibraryModel\ClassLibraryModel.csproj", "{288558E3-323B-4A54-8677-48207402A9C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryModel", "ClassLibraryModel\ClassLibraryModel.csproj", "{288558E3-323B-4A54-8677-48207402A9C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotationCalculator", "QuotationCalculator\QuotationCalculator.csproj", "{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuotationCalculator", "QuotationCalculator\QuotationCalculator.csproj", "{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

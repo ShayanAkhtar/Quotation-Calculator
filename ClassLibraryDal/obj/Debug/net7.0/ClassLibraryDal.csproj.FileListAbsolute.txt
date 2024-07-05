@@ -9,3 +9,7 @@ D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibra
 D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\refint\ClassLibraryDal.dll
 D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.pdb
 D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ref\ClassLibraryDal.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.csproj.AssemblyReference.cache
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryModel.dll
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryModel.pdb
+D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.csproj.CopyComplete

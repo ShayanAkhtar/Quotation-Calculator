@@ -1,0 +1,37 @@
+﻿@page "/windowdetailslist"
+@using ClassLibraryDal
+@using ClassLibraryModel
+<h3>Window Details</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var window in windowDetails)
+        {
+            <tr>
+                <td>@window.WindowsId</td>
+                <td>@window.Type</td>
+                <td>@window.Rate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mb-3">
+    <a href="/addwindowdetails" class="btn btn-primary">Add Window Details</a>
+</div>
+
+@code {
+    List<WindowDetails> windowDetails = new List<WindowDetails>();
+
+    protected override void OnInitialized()
+    {
+        windowDetails = DalWindowDetails.GetAllWindowDetails();
+    }
+}

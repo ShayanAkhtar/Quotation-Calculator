@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +10,22 @@ namespace ClassLibraryModel
 {
     public class ItemDetails
     {
-        public string Type {get; set;}
+        public ItemDetails()
+        { 
+            Glass = new GlassDetails(); 
+        }
+
+        [Key]
+        public int ItemId { get; set; }
+        public int GlassDetailsId { get; set; }
+        [ForeignKey("GlassDetailsId")]
+        public GlassDetails Glass { get; set; }
+        [ForeignKey("QuotationDetails")]
+        public string QuotationId { get; set; }
+        public QuotationDetails QuotationDetails { get; set; }
+        public int WindowsId { get; set; }
+        [ForeignKey("WindowsId")]
+        public WindowDetails Window { get; set; }
         public float Width {get; set;}
         public float Height {get; set;}
         public float SQFT {get; set;}
@@ -18,7 +35,6 @@ namespace ClassLibraryModel
         public float H6 {get; set;}
         public float SQFT3 {get; set;}
         public float SQFT6 {get; set;}
-        public GlassDetails Glass {get; set;}
         public float WindowsAmount {get; set;}
         public float GlassAmount {get; set;}
     }

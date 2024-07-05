@@ -1,0 +1,54 @@
+﻿@page "/addglassdetails"
+
+<h3>Add Glass Details</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <EditForm Model="@glassDetails" OnValidSubmit="@HandleSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label for="inputGColor">Glass Color</label>
+                    <InputText id="inputGColor" class="form-control" @bind-Value="glassDetails.GColor" placeholder="Enter glass color" />
+                </div>
+                <div class="form-group">
+                    <label for="inputRate">Rate</label>
+                    <InputNumber id="inputRate" class="form-control" @bind-Value="glassDetails.Rate" placeholder="Enter rate" />
+                </div>
+                <div class="form-group">
+                    <label for="inputThickness">Thickness</label>
+                    <InputNumber id="inputThickness" class="form-control" @bind-Value="glassDetails.Thickness" placeholder="Enter thickness" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private GlassDetails glassDetails = new GlassDetails();
+
+    private async Task HandleSubmit()
+    {
+        if (string.IsNullOrEmpty(glassDetails.GColor) || glassDetails.Thickness <= 0 || glassDetails.Rate <= 0)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Please enter valid details");
+            return;
+        }
+
+        List<GlassDetails> data = DalGlassDetails.GetAllGlassDetails();
+        bool existingGlass = data.Any(glass => glass.GColor == glassDetails.GColor && glass.Rate == glassDetails.Rate && glass.Thickness == glassDetails.Thickness);
+
+        if (existingGlass)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Record already exists");
+        }
+        else
+        {
+            DalGlassDetails.AddGlassDetails(glassDetails);
+            await JSRuntime.InvokeVoidAsync("alert", "Added successfully");
+        }
+    }
+}

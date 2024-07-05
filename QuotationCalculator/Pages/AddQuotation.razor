@@ -6,29 +6,33 @@
 
 <h1>Add Quotation</h1>
 
-<EditForm Model="quotation" OnValidSubmit="HandleValidSubmit">
+<EditForm Model="quotation">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <div class="form-row">
-    <div class="form-group">
-        <label for="CustomerName">Customer Name</label>
-        <InputText id="CustomerName" @bind-Value="quotation.CustomerName" />
-    </div>
 
     <div class="form-group">
-        <label for="QTNumber">QT#</label>
-        <InputText id="QTNumber" @bind-Value="quotation.QTNumber" />
+        <label for="QuotationId">QT#</label>
+        <span id="QuotationId">@quotation.QuotationId</span>
     </div>
+
+    <div class="form-row">
+
         <div class="form-group">
             <label for="MobileNumber">Mobile Number</label>
-            <InputText id="MobileNumber" @bind-Value="quotation.MobileNumber" />
+            <InputText id="MobileNumber" @bind-Value="customer.MobileNumber" />
         </div>
+
+    <div class="form-group">
+        <label for="CustomerName">Customer Name</label>
+        <InputText id="CustomerName" @bind-Value="customer.CustomerName" />
+    </div>
+
     </div>
 
 
         <div class="form-group address-group">
             <label for="Address">Address</label>
-            <InputText id="Address" @bind-Value="quotation.Address" />
+            <InputText id="Address" @bind-Value="customer.Address" />
         </div>
 
 
@@ -46,7 +50,7 @@
 
     <div class="form-group select-group">
         <label for="Type">Select Type</label>
-        <select name="Type" @bind="newItem.Type" id="Type">
+        <select name="Type" @bind="window.Type" id="Type">
             <option value="none" selected disabled hidden>Select an Option</option>
             <option value="Sliding">Sliding</option>
             <option value="Fix">Fix</option>
@@ -107,7 +111,7 @@
             @foreach (var item in quotation.Items)
             {
                 <tr>
-                    <td>@item.Type</td>
+                    <td>@window.Type</td>
                     <td>@item.Width</td>
                     <td>@item.Height</td>
                     <td>@item.SQFT</td>
@@ -130,8 +134,10 @@
 </EditForm>
 
 @code {
-    private Quotation quotation = new Quotation();
-    private ItemDetails newItem = new ItemDetails { Glass = new GlassDetails() };
+    private QuotationDetails quotation = new QuotationDetails();
+    private ItemDetails newItem = new ItemDetails ();
+    private CustomerDetails customer = new CustomerDetails();
+    private WindowDetails window = new WindowDetails();
     int selectedGlassId { get; set; }
     List<GlassDetails> glassList = new List<GlassDetails>
     {
@@ -181,7 +187,7 @@
 
     private void CalculateAllValues()
     {
-        Random random = new Random();
+        quotation.CustomerMobile = customer.MobileNumber;
         newItem.SQFT = CalculateSQFT(newItem.Width, newItem.Height);
         newItem.W3 = CalculateStandard(newItem.Width, 3);
         newItem.H3 = CalculateStandard(newItem.Height, 3);
@@ -195,26 +201,49 @@
 
     private void AddItemToList()
     {
+        
         CalculateAllValues();
         HandleGlassSelection();
-        if (newItem.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
-    || string.IsNullOrEmpty(quotation.QTNumber) || string.IsNullOrEmpty(quotation.MobileNumber)
-    || string.IsNullOrEmpty(quotation.CustomerName))
+        if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
+            || string.IsNullOrEmpty(customer.MobileNumber)
+            || string.IsNullOrEmpty(customer.CustomerName))
         {
             JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
         }
 
         else
         {
-            quotation.Items.Add(newItem);
+            if (quotation.Items.Count == 0)
+            {
+                quotation.Items.Add(newItem);
+                newItem = new ItemDetails { Glass = new GlassDetails() };
+            }
+            else
+            {
+                bool itemExists = false;
+                foreach (var item in quotation.Items)
+                {
+                    if (window.Type == window.Type && newItem.Width == item.Width && newItem.Height == item.Height && newItem.Glass == item.Glass)
+                    {
+                        itemExists = true;
+                        break;
+                    }
+                }
 
+                if (itemExists)
+                {
+                    JSRuntime.InvokeVoidAsync("alert", "Quotation Already Added");
+                }
+                else
+                {
+                    quotation.Items.Add(newItem);
+                    newItem = new ItemDetails { Glass = new GlassDetails() };
+                }
+            }     
         }
-        newItem = new ItemDetails { Glass = new GlassDetails() };
+        
     }
 
-    async Task HandleValidSubmit()
 
-    {
-        await JSRuntime.InvokeVoidAsync("alert", "Form submitted successfully!");
-    }
 }
+

@@ -1,0 +1,39 @@
+﻿@page "/glassdetailslist"
+@using ClassLibraryDal
+@using ClassLibraryModel
+<h3>Glass Details</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Color</th>
+            <th>Rate</th>
+            <th>Thickness</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var glass in glassDetails)
+        {
+            <tr>
+                <td>@glass.GId</td>
+                <td>@glass.GColor</td>
+                <td>@glass.Rate</td>
+                <td>@glass.Thickness</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="mb-3">
+    <a href="/addglassdetails" class="btn btn-primary">Add Glass Details</a>
+</div>
+
+@code {
+    List<GlassDetails> glassDetails = new List<GlassDetails>();
+
+    protected override void OnInitialized()
+    {
+        glassDetails = DalGlassDetails.GetAllGlassDetails();
+    }
+}
