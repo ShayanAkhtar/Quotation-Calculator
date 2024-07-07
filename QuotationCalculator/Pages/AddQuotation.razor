@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <label for="MobileNumber">Mobile Number</label>
-            <InputText id="MobileNumber" @bind-Value="customer.MobileNumber" />
+            <InputNumber id="MobileNumber" placeholder="Enter phone number" @bind-Value="customer.MobileNumber" />
         </div>
 
     <div class="form-group">
@@ -28,11 +28,9 @@
     </div>
 
     </div>
-
-
         <div class="form-group address-group">
             <label for="Address">Address</label>
-            <InputText id="Address" @bind-Value="customer.Address" />
+            <InputTextArea id="Address" @bind-Value="customer.Address" />
         </div>
 
 
@@ -72,6 +70,10 @@
             <label for="Height">Height</label>
             <InputNumber id="Height" @bind-Value="newItem.Height" />
         </div>
+        <div class="form-group">
+            <label for="QTY">Quantity</label>
+            <InputNumber id="QTY" @bind-Value="newItem.QTY" />
+        </div>
     </div>
 
     <div class="form-group">
@@ -92,6 +94,7 @@
     <table class="item-table">
         <thead>
             <tr>
+                <th>Qty</th>
                 <th>Type</th>
                 <th>Width</th>
                 <th>Height</th>
@@ -111,7 +114,8 @@
             @foreach (var item in quotation.Items)
             {
                 <tr>
-                    <td>@window.Type</td>
+                    <td>@item.QTY</td>
+                    <td>@item.Window.Type</td>
                     <td>@item.Width</td>
                     <td>@item.Height</td>
                     <td>@item.SQFT</td>
@@ -124,6 +128,9 @@
                     <td>@item.Glass.GColor</td>
                     <td>@item.WindowsAmount</td>
                     <td>@item.GlassAmount</td>
+                        <button @onclick="() => DeleteItem(item)" class="btn btn-bin">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                 </tr>
             }
         </tbody>
@@ -135,9 +142,10 @@
 
 @code {
     private QuotationDetails quotation = new QuotationDetails();
-    private ItemDetails newItem = new ItemDetails ();
+    private ItemDetails newItem = new ItemDetails();
+    WindowDetails window = new WindowDetails();
+
     private CustomerDetails customer = new CustomerDetails();
-    private WindowDetails window = new WindowDetails();
     int selectedGlassId { get; set; }
     List<GlassDetails> glassList = new List<GlassDetails>
     {
@@ -187,6 +195,7 @@
 
     private void CalculateAllValues()
     {
+        newItem.Window = window;
         quotation.CustomerMobile = customer.MobileNumber;
         newItem.SQFT = CalculateSQFT(newItem.Width, newItem.Height);
         newItem.W3 = CalculateStandard(newItem.Width, 3);
@@ -195,17 +204,17 @@
         newItem.H6 = CalculateStandard(newItem.Height, 6);
         newItem.SQFT3 = CalculateSQFT(newItem.W3, newItem.H3);
         newItem.SQFT6 = CalculateSQFT(newItem.W6, newItem.H6);
-        newItem.WindowsAmount=newItem.SQFT3*100;
-        newItem.GlassAmount = newItem.SQFT3 * 200; ;
+        newItem.WindowsAmount=(newItem.SQFT3*100)*newItem.QTY;
+        newItem.GlassAmount = (newItem.SQFT3 * 200)*newItem.QTY;
     }
 
     private void AddItemToList()
     {
-        
+
         CalculateAllValues();
         HandleGlassSelection();
         if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
-            || string.IsNullOrEmpty(customer.MobileNumber)
+            || customer.MobileNumber==0
             || string.IsNullOrEmpty(customer.CustomerName))
         {
             JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
@@ -216,15 +225,21 @@
             if (quotation.Items.Count == 0)
             {
                 quotation.Items.Add(newItem);
-                newItem = new ItemDetails { Glass = new GlassDetails() };
+                newItem = new ItemDetails();
+                window = new WindowDetails();
             }
             else
             {
                 bool itemExists = false;
                 foreach (var item in quotation.Items)
                 {
-                    if (window.Type == window.Type && newItem.Width == item.Width && newItem.Height == item.Height && newItem.Glass == item.Glass)
+                    if (item.Window.Type == window.Type && newItem.Width == item.Width && newItem.Height == item.Height && newItem.Glass == item.Glass)
                     {
+                        item.QTY = item.QTY + newItem.QTY;
+                        item.WindowsAmount = (newItem.SQFT3 * 100) * item.QTY;
+                        item.GlassAmount = (newItem.SQFT3 * 200) * item.QTY;
+                        newItem = new ItemDetails ();
+                        window = new WindowDetails();
                         itemExists = true;
                         break;
                     }
@@ -232,18 +247,28 @@
 
                 if (itemExists)
                 {
-                    JSRuntime.InvokeVoidAsync("alert", "Quotation Already Added");
+
+                    JSRuntime.InvokeVoidAsync("alert", "Quotation Updated Successfully");
                 }
                 else
                 {
                     quotation.Items.Add(newItem);
-                    newItem = new ItemDetails { Glass = new GlassDetails() };
+                    newItem = new ItemDetails ();
+                    window = new WindowDetails();
                 }
             }     
         }
         
     }
 
+    protected override void OnInitialized()
+    {
+        quotation.Date = DateTime.Now;
+    }
 
+    private void DeleteItem(ItemDetails item)
+    {
+        quotation.Items.Remove(item);
+    }
 }
 

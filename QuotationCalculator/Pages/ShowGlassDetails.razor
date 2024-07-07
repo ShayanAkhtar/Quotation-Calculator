@@ -2,6 +2,7 @@
 @using ClassLibraryDal
 @using ClassLibraryModel
 <h3>Glass Details</h3>
+<PageTitle>Glass Details</PageTitle>
 
 <table class="table">
     <thead>
@@ -20,6 +21,9 @@
                 <td>@glass.GColor</td>
                 <td>@glass.Rate</td>
                 <td>@glass.Thickness</td>
+                <button @onclick="() => DeleteGlassDetail(glass)" class="btn btn-bin">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </tr>
         }
     </tbody>
@@ -35,5 +39,11 @@
     protected override void OnInitialized()
     {
         glassDetails = DalGlassDetails.GetAllGlassDetails();
+    }
+
+    private void DeleteGlassDetail(GlassDetails model)
+    {
+        DalGlassDetails.DeleteGlassDetails(model);
+        JSRuntime.InvokeVoidAsync("alert", "Deleted Successfully");
     }
 }

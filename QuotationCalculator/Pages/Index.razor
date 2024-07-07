@@ -36,6 +36,13 @@
     private void HandleSubmit()
     {
         UserDetails userFound = DalUserDetails.Login_User(userDetails.EmailAddress, userDetails.Pass);
-        JSRuntime.InvokeVoidAsync("alert","Hi, "+ userFound.FullName+"\nLogin Successfull");
+        if(userFound!=null)
+        {
+            JSRuntime.InvokeVoidAsync("alert", "Hi, " + userFound.FullName + "\nLogin Successfull");
+        }
+        else
+        {
+            JSRuntime.InvokeVoidAsync("alert", "User Not Found");
+        }
     }
 }

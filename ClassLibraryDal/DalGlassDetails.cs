@@ -24,7 +24,6 @@ namespace ClassLibraryDal
 
             conn.Close();
         }
-
         public static List<GlassDetails> GetAllGlassDetails()
         {
             SqlConnection conn = DbHelper.GetConnection();
@@ -47,5 +46,16 @@ namespace ClassLibraryDal
             }
             return data;
         }
+        public static void DeleteGlassDetails(GlassDetails model)
+        {
+            SqlConnection conn = DbHelper.GetConnection();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DeleteGlassDetails", conn);
+            cmd.CommandType= CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@GId", model.GId);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+    
     }
 }

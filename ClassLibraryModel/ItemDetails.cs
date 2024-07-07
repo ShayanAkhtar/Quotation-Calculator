@@ -11,8 +11,10 @@ namespace ClassLibraryModel
     public class ItemDetails
     {
         public ItemDetails()
-        { 
-            Glass = new GlassDetails(); 
+        {
+            Glass = new GlassDetails();
+            Window = new WindowDetails();
+            QTY = 1;
         }
 
         [Key]
@@ -25,7 +27,7 @@ namespace ClassLibraryModel
         public QuotationDetails QuotationDetails { get; set; }
         public int WindowsId { get; set; }
         [ForeignKey("WindowsId")]
-        public WindowDetails Window { get; set; }
+        public WindowDetails? Window { get; set; }
         public float Width {get; set;}
         public float Height {get; set;}
         public float SQFT {get; set;}
@@ -37,5 +39,6 @@ namespace ClassLibraryModel
         public float SQFT6 {get; set;}
         public float WindowsAmount {get; set;}
         public float GlassAmount {get; set;}
+        public int QTY { get; set;}
     }
 }

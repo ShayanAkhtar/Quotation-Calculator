@@ -13,6 +13,6 @@ namespace ClassLibraryModel
         public string? CustomerName { get; set; }
         public string? Address { get; set; }
         [Required]
-        public string? MobileNumber { get; set; }
+        public long MobileNumber { get; set; }
     }
 }

@@ -47,13 +47,13 @@ CREATE TABLE WindowDetails (
 CREATE TABLE CustomerDetails (
     CustomerName NVARCHAR(100) NOT NULL,
     Address NVARCHAR(200),
-    MobileNumber NVARCHAR(20) PRIMARY KEY
+    MobileNumber int PRIMARY KEY
 );
 
 -- Create QuotationDetails Table
 CREATE TABLE QuotationDetails (
     QuotationId NVARCHAR(36) PRIMARY KEY,
-    CustomerMobile NVARCHAR(20) NOT NULL,
+    CustomerMobile int NOT NULL,
     Date DATE NOT NULL,
     Remarks NVARCHAR(500),
     TotalAmount FLOAT NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE QuotationDetails (
 CREATE TABLE ItemDetails (
     ItemId INT IDENTITY(1,1) PRIMARY KEY,
 	GlassId INT NOT NULL,
-	QuotationId INT NOT NULL,
+	QuotationId NVARCHAR(36) NOT NULL,
     Type NVARCHAR(100) NOT NULL,
     Width FLOAT NOT NULL,
     Height FLOAT NOT NULL,
@@ -85,6 +85,16 @@ BEGIN
     INSERT INTO GlassDetails (GColor, Rate, Thickness)
     VALUES (@GColor, @Rate, @Thickness);
 END
+
+-- Procedure to DeleteGlassDetails
+CREATE PROCEDURE DeleteGlassDetails
+    @GId INT
+AS
+BEGIN
+    DELETE FROM GlassDetails
+    WHERE GId = @GId;
+END
+
 
 --Procedure to GetAllGlassDetails
 CREATE PROCEDURE GetAllGlassDetails

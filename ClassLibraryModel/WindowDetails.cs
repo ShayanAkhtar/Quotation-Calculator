@@ -11,7 +11,7 @@ namespace ClassLibraryModel
     {
         [Key]
         public int WindowsId { get ; set; }
-        public string Type { get; set; }
+        public string? Type { get; set; }
         public float Rate {  get; set; }
     }
 }

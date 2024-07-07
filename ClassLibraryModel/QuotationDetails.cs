@@ -21,9 +21,9 @@ namespace ClassLibraryModel
         }
 
         [Key]
-        public string QuotationId { get; set; }
+        public string? QuotationId { get; set; }
         [Required]
-        public string? CustomerMobile { get; set; }
+        public long? CustomerMobile { get; set; }
         [Required]
         public DateTime Date { get; set; }
         public string? Remarks { get; set; }
