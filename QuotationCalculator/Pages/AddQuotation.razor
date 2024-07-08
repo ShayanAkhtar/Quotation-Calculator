@@ -46,19 +46,39 @@
 
     <h3>Add Item Details</h3>
 
-    <div class="form-group select-group">
-        <label for="Type">Select Type</label>
-        <select name="Type" @bind="window.Type" id="Type">
-            <option value="none" selected disabled hidden>Select an Option</option>
-            <option value="Sliding">Sliding</option>
-            <option value="Fix">Fix</option>
-            <option value="Openable">Openable</option>
-            <option value="Door">Door</option>
-            <option value="Swing Door">Swing Door</option>
-        </select>
+    <div class="form-row">
+        <div class="form-group select-group">
+            <label for="Type">Select Type</label>
+            <select name="Type" @onchange="OnWindowChanged">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                @foreach (var win in WindowList)
+                {
+                    <option value="@win.WindowsId">@win.Type -- Rate: @win.Rate</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Window Price">Window Price</label>
+            <InputNumber id="Window Price" @bind-Value="window.Rate" />
+        </div>
     </div>
 
-
+    <div class="form-row">
+        <div class="form-group select-group">
+            <label for="GlassSelection">Select Glass</label>
+            <select id="GlassSelection" @onchange="OnGlassChanged">
+                <option value="0" selected disabled hidden>Select Glass</option>
+                @foreach (var glass in glassList)
+                {
+                    <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Glass Price">Glass Price</label>
+            <InputNumber id="Glass Price" @bind-Value="glassDetails.Rate" />
+        </div>
+    </div>
 
     <div class="form-row">
         <div class="form-group">
@@ -74,17 +94,6 @@
             <label for="QTY">Quantity</label>
             <InputNumber id="QTY" @bind-Value="newItem.QTY" />
         </div>
-    </div>
-
-    <div class="form-group">
-        <label for="GlassSelection">Select Glass</label>
-        <select id="GlassSelection" @bind="selectedGlassId">
-            <option value="0" selected disabled hidden>Select Glass</option>
-            @foreach (var glass in glassList)
-            {
-                <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
-            }
-        </select>
     </div>
 
 
@@ -106,6 +115,8 @@
                 <th>3"SQFT</th>
                 <th>6"SQFT</th>
                 <th>Glass Color</th>
+                <th>Window Unit Price</th>
+                <th>Glass Unit Price</th>
                 <th>Windows Amount</th>
                 <th>Glass Amount</th>
             </tr>
@@ -125,7 +136,9 @@
                     <td>@item.H6</td>
                     <td>@item.SQFT3</td>
                     <td>@item.SQFT6</td>
-                    <td>@item.Glass.GColor</td>
+                    <td>@item.WindowsAmount</td>
+                    <td>@item.Window.Rate</td
+                    <td>@item.Glass.Rate</td>
                     <td>@item.WindowsAmount</td>
                     <td>@item.GlassAmount</td>
                         <button @onclick="() => DeleteItem(item)" class="btn btn-bin">
@@ -136,29 +149,26 @@
         </tbody>
     </table>
 
-
-    <button class="Submit-button" type="submit">Submit</button>
+    <button class="Submit-button" @onclick="OnSubmit" type="submit">Submit</button>
 </EditForm>
 
 @code {
     private QuotationDetails quotation = new QuotationDetails();
     private ItemDetails newItem = new ItemDetails();
-    WindowDetails window = new WindowDetails();
-
+    private WindowDetails window = new WindowDetails();
     private CustomerDetails customer = new CustomerDetails();
+    private GlassDetails glassDetails = new GlassDetails();
+
+    private string selectedWindowType="";
     int selectedGlassId { get; set; }
-    List<GlassDetails> glassList = new List<GlassDetails>
-    {
-        new GlassDetails { GId = 1, GColor = "Clear", Rate = 20.0f, Thickness = 5.0f },
-        new GlassDetails { GId = 2, GColor = "Tinted", Rate = 25.0f, Thickness = 6.0f },
-    };
+    List<GlassDetails> glassList = DalGlassDetails.GetAllGlassDetails();
+    List<WindowDetails> WindowList = DalWindowDetails.GetAllWindowDetails();
 
 
     private float CalculateSQFT(float w,float h)
     {
         return (w * h) / 144;
     }
-
     private float CalculateStandard(float  orignalValue,int standard)
     {
         var remainder = orignalValue %  standard;
@@ -171,7 +181,6 @@
             return orignalValue +(standard- remainder);
         }
     }
-
     private void HandleGlassSelection()
     {
         GlassDetails selectedGlass = new GlassDetails();
@@ -192,11 +201,15 @@
             newItem.Glass = new GlassDetails();
         }
     }
-
     private void CalculateAllValues()
     {
         newItem.Window = window;
         quotation.CustomerMobile = customer.MobileNumber;
+        newItem.GlassId = glassDetails.GId;
+        newItem.QuotationId = quotation.QuotationId;
+        newItem.WindowsId = window.WindowsId;
+        newItem.GlassRate = glassDetails.Rate;
+        newItem.WindowsRate = window.Rate;
         newItem.SQFT = CalculateSQFT(newItem.Width, newItem.Height);
         newItem.W3 = CalculateStandard(newItem.Width, 3);
         newItem.H3 = CalculateStandard(newItem.Height, 3);
@@ -207,10 +220,8 @@
         newItem.WindowsAmount=(newItem.SQFT3*100)*newItem.QTY;
         newItem.GlassAmount = (newItem.SQFT3 * 200)*newItem.QTY;
     }
-
     private void AddItemToList()
     {
-
         CalculateAllValues();
         HandleGlassSelection();
         if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
@@ -227,6 +238,7 @@
                 quotation.Items.Add(newItem);
                 newItem = new ItemDetails();
                 window = new WindowDetails();
+                glassDetails = new GlassDetails();
             }
             else
             {
@@ -258,17 +270,103 @@
                 }
             }     
         }
-        
-    }
 
+    }
     protected override void OnInitialized()
     {
         quotation.Date = DateTime.Now;
     }
-
     private void DeleteItem(ItemDetails item)
     {
         quotation.Items.Remove(item);
+    }
+    private void OnWindowChanged(ChangeEventArgs e)
+    {
+        var selectedId = int.Parse(e.Value.ToString());
+        window = WindowList.FirstOrDefault(w => w.WindowsId == selectedId);
+    }
+    private void OnGlassChanged(ChangeEventArgs e)
+    {
+        selectedGlassId = int.Parse(e.Value.ToString());
+        glassDetails = glassList.FirstOrDefault(g => g.GId == selectedGlassId);
+    }
+
+    private  async Task AddCustomer(CustomerDetails model)
+    {
+        List<CustomerDetails> customerDetails=DalCustomerDetails.GetAllCustomerDetails();
+        if(customerDetails.Count==0)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@CustomerName", model.CustomerName),
+                new SqlParameter("@Address", model.Address),
+                new SqlParameter("@MobileNumber", model.MobileNumber)
+            };
+            await DalCrud.SaveData("AddCustomerDetails",parameters);
+        }
+        else
+        {
+             foreach(var customer in customerDetails)
+        {
+            if(model.MobileNumber==customer.MobileNumber)
+            {
+                break;
+            }
+            else
+            {
+                SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@CustomerName", model.CustomerName),
+                new SqlParameter("@Address", model.Address),
+                new SqlParameter("@MobileNumber", model.MobileNumber)
+            };
+                await DalCrud.SaveData("AddCustomerDetails",parameters);
+                await JSRuntime.InvokeVoidAsync("alert", "else");
+                break;
+            }
+        }
+        }
+       
+
+    }
+    private async Task AddQuotationDetail(QuotationDetails model)
+    {
+        SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@QuotationId", model.QuotationId),
+                new SqlParameter("@CustomerMobile", model.CustomerMobile),
+                new SqlParameter("@Date", model.Date),
+                new SqlParameter("@Remarks", model.Remarks)
+            };
+        await DalCrud.SaveData("AddQuotationDetails", parameters);
+        await JSRuntime.InvokeVoidAsync("alert", "Quotation Added");
+    }
+    private async Task AddItemDetails(QuotationDetails model)
+    {
+        foreach(var item in model.Items)
+        {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@GlassId", item.GlassId),
+                new SqlParameter("@QuotationId", item.QuotationId),
+                new SqlParameter("@WindowsId", item.WindowsId),
+                new SqlParameter("@Width", item.Width),
+                new SqlParameter("@Height", item.Height),
+                new SqlParameter("@WindowsRate", item.WindowsRate),
+                new SqlParameter("@GlassRate", item.GlassRate)
+
+            };
+            await DalCrud.SaveData("AddItemDetails", parameters);
+            await JSRuntime.InvokeVoidAsync("alert", "Item Added Added");
+
+        }
+    }
+    private async Task OnSubmit()
+    {
+        await AddCustomer(customer);
+        await AddQuotationDetail(quotation);
+        await AddItemDetails(quotation);
+        await JSRuntime.InvokeVoidAsync("alert", "Quotation Submitted Successfully");
     }
 }
 

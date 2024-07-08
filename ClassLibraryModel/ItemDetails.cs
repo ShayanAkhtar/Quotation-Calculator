@@ -19,7 +19,7 @@ namespace ClassLibraryModel
 
         [Key]
         public int ItemId { get; set; }
-        public int GlassDetailsId { get; set; }
+        public int GlassId { get; set; }
         [ForeignKey("GlassDetailsId")]
         public GlassDetails Glass { get; set; }
         [ForeignKey("QuotationDetails")]
@@ -37,6 +37,8 @@ namespace ClassLibraryModel
         public float H6 {get; set;}
         public float SQFT3 {get; set;}
         public float SQFT6 {get; set;}
+        public float WindowsRate { get; set; }
+        public float GlassRate { get; set; }
         public float WindowsAmount {get; set;}
         public float GlassAmount {get; set;}
         public int QTY { get; set;}

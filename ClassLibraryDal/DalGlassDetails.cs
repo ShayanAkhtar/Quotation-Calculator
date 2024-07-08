@@ -44,6 +44,7 @@ namespace ClassLibraryDal
                 };
                 data.Add(glassDetails);
             }
+            conn.Close();
             return data;
         }
         public static void DeleteGlassDetails(GlassDetails model)

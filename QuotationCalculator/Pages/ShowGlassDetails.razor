@@ -38,12 +38,14 @@
 
     protected override void OnInitialized()
     {
-        glassDetails = DalGlassDetails.GetAllGlassDetails();
+        glassDetails =  DalGlassDetails.GetAllGlassDetails();
     }
 
     private void DeleteGlassDetail(GlassDetails model)
     {
-        DalGlassDetails.DeleteGlassDetails(model);
+
+        DalCrud.DeleteData("DeleteGlassDetails", "@GId", model.GId);
+        glassDetails = DalGlassDetails.GetAllGlassDetails();
         JSRuntime.InvokeVoidAsync("alert", "Deleted Successfully");
     }
 }

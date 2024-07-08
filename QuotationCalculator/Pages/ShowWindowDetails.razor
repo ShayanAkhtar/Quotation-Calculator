@@ -19,6 +19,9 @@
                 <td>@window.WindowsId</td>
                 <td>@window.Type</td>
                 <td>@window.Rate</td>
+                <button @onclick="() => DeleteWindowDetail(window)" class="btn btn-bin">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </tr>
         }
     </tbody>
@@ -35,4 +38,11 @@
     {
         windowDetails = DalWindowDetails.GetAllWindowDetails();
     }
+    private void DeleteWindowDetail(WindowDetails model)
+    {
+        DalCrud.DeleteData("DeleteWindowDetails", "@WindowsId", model.WindowsId);
+        windowDetails = DalWindowDetails.GetAllWindowDetails();
+        JSRuntime.InvokeVoidAsync("alert", "Deleted Successfully");
+    }
+
 }

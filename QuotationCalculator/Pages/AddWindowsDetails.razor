@@ -34,7 +34,7 @@
 
         List<WindowDetails> data = DalWindowDetails.GetAllWindowDetails();
         bool existingWindow = false;
-        existingWindow = data.Any(window => window.Type == windowDetails.Type && window.Rate == windowDetails.Rate);
+        existingWindow = data.Any(window => window.Type == windowDetails.Type);
 
         if (existingWindow)
         {
@@ -42,8 +42,15 @@
         }
         else
         {
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@Type", windowDetails.Type),
+                new SqlParameter("@Rate", windowDetails.Rate),
+            };
+            await DalCrud.SaveData("AddWindowDetails", parameters);
             DalWindowDetails.AddWindowDetails(windowDetails);
             await JSRuntime.InvokeVoidAsync("alert", "Added Successfully");
+            windowDetails = new WindowDetails();
         }
     }
 }
