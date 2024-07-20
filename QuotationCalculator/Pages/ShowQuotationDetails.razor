@@ -1,0 +1,39 @@
+﻿@page "/quotationdetails/{QuotationId}"
+
+@inject NavigationManager NavigationManager
+
+<h3>Quotation Details</h3>
+
+@if (quotation == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Quotation ID: @quotation.QuotationId</h5>
+            <p class="card-text"><strong>Date:</strong> @quotation.Date.ToString("yyyy-MM-dd")</p>
+            <p class="card-text"><strong>Customer Mobile:</strong> @quotation.CustomerMobile</p>
+            <p class="card-text"><strong>Remarks:</strong> @quotation.Remarks</p>
+        </div>
+    </div>
+    <button class="btn btn-secondary" @onclick="GoBack">Back</button>
+}
+
+@code {
+    [Parameter]
+    public string QuotationId { get; set; }
+
+    private QuotationDetails quotation;
+
+    protected override async Task OnInitializedAsync()
+    {
+        quotation = await  DalQuotationDetails.GetQuotationById(QuotationId);
+    }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("/quotations");
+    }
+}

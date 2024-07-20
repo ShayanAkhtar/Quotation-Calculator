@@ -9,3 +9,15 @@ D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLib
 D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\refint\ClassLibraryModel.dll
 D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.pdb
 D:\Visual Studio\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ref\ClassLibraryModel.dll
+D:\QuotationCalculator\ClassLibraryModel\bin\Debug\net7.0\ClassLibraryModel.deps.json
+D:\QuotationCalculator\ClassLibraryModel\bin\Debug\net7.0\ClassLibraryModel.dll
+D:\QuotationCalculator\ClassLibraryModel\bin\Debug\net7.0\ClassLibraryModel.pdb
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.AssemblyInfoInputs.cache
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.AssemblyInfo.cs
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.csproj.CoreCompileInputs.cache
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.sourcelink.json
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.dll
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\refint\ClassLibraryModel.dll
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ClassLibraryModel.pdb
+D:\QuotationCalculator\ClassLibraryModel\obj\Debug\net7.0\ref\ClassLibraryModel.dll

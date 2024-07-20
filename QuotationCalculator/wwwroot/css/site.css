@@ -209,6 +209,45 @@ input[type=number] {
 /*------------------------------*/
 
 
+/*Styling of Quotation card*/
+/* Custom card styling */
+.card {
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Custom box shadow for cards */
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Row margin adjustments */
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Column padding adjustments */
+.col-md-4 {
+    padding-left: 0;
+    padding-right: 0.75rem;
+}
+
 
 
 

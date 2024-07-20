@@ -1,0 +1,38 @@
+﻿@page "/quotationslist"
+@using System.Data
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+<h3>Quotations List</h3>
+
+@if (quotations == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        @foreach (var quotation in quotations)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Quotation ID: @quotation.QuotationId</h5>
+                        <p class="card-text"><strong>Date:</strong> @quotation.Date.ToString("yyyy-MM-dd")</p>
+                        <p class="card-text"><strong>Customer Mobile:</strong> @quotation.CustomerMobile</p>
+                        <p class="card-text"><strong>Remarks:</strong> @quotation.Remarks</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<QuotationDetails> quotations;
+
+    protected override async Task OnInitializedAsync()
+    {
+        quotations = await DalQuotationsDetails.GetAllQuotations();
+    }
+}

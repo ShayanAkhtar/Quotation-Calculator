@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JM2VlRM/DJ12l6ljsaVT0xrAsC3R8qMs8meG25YJRujMGG5CmtWiNoY8yE7Tb22azXStvltlhjqGRMbVskDI0w==",
+  "dgSpecHash": "O4fAsXmKpec=",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj",
+  "projectFilePath": "D:\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\shaya\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\shaya\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

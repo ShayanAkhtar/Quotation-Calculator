@@ -52,7 +52,7 @@ CREATE TABLE CustomerDetails (
 
 -- Create QuotationDetails Table
 CREATE TABLE QuotationDetails (
-    QuotationId NVARCHAR(36) PRIMARY KEY,
+    QuotationId NVARCHAR(8) PRIMARY KEY,
     CustomerMobile bigint NOT NULL,
     Date DATE NOT NULL,
     Remarks NVARCHAR(500),
@@ -62,15 +62,15 @@ CREATE TABLE QuotationDetails (
 -- Create ItemDetails Table
 CREATE TABLE ItemDetails (
     ItemId INT IDENTITY(1,1) PRIMARY KEY,
-	GlassId INT NOT NULL,
-	QuotationId NVARCHAR(36) NOT NULL,
+	GId INT NOT NULL,
+	QuotationId NVARCHAR(8) NOT NULL,
 	WindowsId INT NOT NULL,
     Width FLOAT NOT NULL,
     Height FLOAT NOT NULL,
     WindowsRate FLOAT NOT NULL,
     GlassRate FLOAT NOT NULL,
 	FOREIGN KEY (WindowsId) REFERENCES WindowDetails(WindowsId),
-    FOREIGN KEY (GlassId) REFERENCES GlassDetails(GId),
+    FOREIGN KEY (GId) REFERENCES GlassDetails(GId),
     FOREIGN KEY (QuotationId) REFERENCES QuotationDetails(QuotationId)
 );
 
@@ -151,7 +151,7 @@ END
 
 -- Procedure to  AddQuotationDetails
 CREATE PROCEDURE AddQuotationDetails
-    @QuotationId NVARCHAR(36),
+    @QuotationId NVARCHAR(8),
     @CustomerMobile BIGINT,
     @Date DATE,
     @Remarks NVARCHAR(500)
@@ -163,8 +163,8 @@ END
 
 -- Procedure to  AddItemDetails
 CREATE PROCEDURE AddItemDetails
-    @GlassId INT,
-    @QuotationId NVARCHAR(36),
+    @GId INT,
+    @QuotationId NVARCHAR(8),
     @WindowsId INT,
     @Width FLOAT,
     @Height FLOAT,
@@ -172,17 +172,33 @@ CREATE PROCEDURE AddItemDetails
     @GlassRate FLOAT
 AS
 BEGIN
-    INSERT INTO ItemDetails (GlassId, QuotationId, WindowsId, Width, Height, WindowsRate, GlassRate)
-    VALUES (@GlassId, @QuotationId, @WindowsId, @Width, @Height, @WindowsRate, @GlassRate);
+    INSERT INTO ItemDetails (GId, QuotationId, WindowsId, Width, Height, WindowsRate, GlassRate)
+    VALUES (@GId, @QuotationId, @WindowsId, @Width, @Height, @WindowsRate, @GlassRate);
+END
+
+-- Procedure to  GetAllQuotationDetails
+CREATE PROCEDURE GetAllQuotations
+AS
+BEGIN
+    SELECT QuotationId, CustomerMobile, Date, Remarks
+    FROM QuotationDetails;
 END
 
 
+CREATE PROCEDURE GetQuotationById
+    @QuotationId NVARCHAR(8)
+AS
+BEGIN
+    SELECT QuotationId, CustomerMobile, Date, Remarks
+    FROM QuotationDetails
+    WHERE QuotationId = @QuotationId;
+END
+
+
+
 select * from QuotationDetails
+select * from CustomerDetails
+select * from ItemDetails
+select * from WindowDetails
+select * from GlassDetails
 
-
-
- EXEC AddQuotationDetails 
-    @QuotationId = '12345678-1234-5678-1234-567812345678',
-    @CustomerMobile = 3000044499,
-    @Date = '2024-07-08',
-    @Remarks = 'Test quotation';

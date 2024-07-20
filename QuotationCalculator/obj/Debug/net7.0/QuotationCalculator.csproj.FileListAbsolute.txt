@@ -34,7 +34,6 @@ D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassL
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassLibraryDal.pdb
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassLibraryModel.pdb
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.csproj.AssemblyReference.cache
-D:\Visual Studio\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.csproj.CopyComplete
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Azure.Core.dll
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Azure.Identity.dll
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -80,3 +79,88 @@ D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtim
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Visual Studio\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Visual Studio\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.sourcelink.json
+D:\Visual Studio\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\Quotatio.4FECAA01.Up2Date
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\appsettings.Development.json
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\appsettings.json
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\QuotationCalculator.staticwebassets.runtime.json
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\QuotationCalculator.exe
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\QuotationCalculator.deps.json
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\QuotationCalculator.runtimeconfig.json
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\QuotationCalculator.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\QuotationCalculator.pdb
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Azure.Core.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Azure.Identity.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.ClientModel.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Memory.Data.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Runtime.Caching.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Security.Permissions.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassLibraryDal.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassLibraryModel.dll
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassLibraryDal.pdb
+D:\QuotationCalculator\QuotationCalculator\bin\Debug\net7.0\ClassLibraryModel.pdb
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.csproj.AssemblyReference.cache
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.AssemblyInfoInputs.cache
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.AssemblyInfo.cs
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.csproj.CoreCompileInputs.cache
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.MvcApplicationPartsAssemblyInfo.cache
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.RazorAssemblyInfo.cache
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.RazorAssemblyInfo.cs
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.sourcelink.json
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets.build.json
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets.development.json
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets\msbuild.QuotationCalculator.Microsoft.AspNetCore.StaticWebAssets.props
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets\msbuild.build.QuotationCalculator.props
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.QuotationCalculator.props
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.QuotationCalculator.props
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\staticwebassets.pack.json
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\scopedcss\bundle\QuotationCalculator.styles.css
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\scopedcss\projectbundle\QuotationCalculator.bundle.scp.css
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\Quotatio.4FECAA01.Up2Date
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.dll
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\refint\QuotationCalculator.dll
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.pdb
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\QuotationCalculator.genruntimeconfig.cache
+D:\QuotationCalculator\QuotationCalculator\obj\Debug\net7.0\ref\QuotationCalculator.dll

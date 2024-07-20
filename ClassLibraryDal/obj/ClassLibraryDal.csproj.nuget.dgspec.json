@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj": {}
+    "D:\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj": {
+    "D:\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj",
+        "projectUniqueName": "D:\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj",
         "projectName": "ClassLibraryDal",
-        "projectPath": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj",
+        "projectPath": "D:\\QuotationCalculator\\ClassLibraryDal\\ClassLibraryDal.csproj",
         "packagesPath": "C:\\Users\\shaya\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryDal\\obj\\",
+        "outputPath": "D:\\QuotationCalculator\\ClassLibraryDal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\shaya\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj": {
-                "projectPath": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj"
+              "D:\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj": {
+                "projectPath": "D:\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj"
               }
             }
           }
@@ -38,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -65,18 +71,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj": {
+    "D:\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj",
+        "projectUniqueName": "D:\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj",
         "projectName": "ClassLibraryModel",
-        "projectPath": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj",
+        "projectPath": "D:\\QuotationCalculator\\ClassLibraryModel\\ClassLibraryModel.csproj",
         "packagesPath": "C:\\Users\\shaya\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\QuotationCalculator\\ClassLibraryModel\\obj\\",
+        "outputPath": "D:\\QuotationCalculator\\ClassLibraryModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\shaya\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -87,6 +93,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -99,6 +106,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -120,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

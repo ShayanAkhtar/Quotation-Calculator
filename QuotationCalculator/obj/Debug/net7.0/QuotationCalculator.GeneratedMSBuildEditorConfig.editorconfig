@@ -9,65 +9,75 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = QuotationCalculator
 build_property.RootNamespace = QuotationCalculator
-build_property.ProjectDir = D:\Visual Studio\QuotationCalculator\QuotationCalculator\
+build_property.ProjectDir = D:\QuotationCalculator\QuotationCalculator\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Visual Studio\QuotationCalculator\QuotationCalculator
+build_property.MSBuildProjectDirectory = D:\QuotationCalculator\QuotationCalculator
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/App.razor]
+[D:/QuotationCalculator/QuotationCalculator/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/AddGlassDetails.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/AddGlassDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkR2xhc3NEZXRhaWxzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/AddQuotation.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/AddQuotation.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUXVvdGF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/AddWindowsDetails.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/AddWindowsDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkV2luZG93c0RldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/Index.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/ShowGlassDetails.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/ShowGlassDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd0dsYXNzRGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/ShowWindowDetails.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/ShowQuotationDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd1F1b3RhdGlvbkRldGFpbHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QuotationCalculator/QuotationCalculator/Pages/ShowQuotationsList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd1F1b3RhdGlvbnNMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QuotationCalculator/QuotationCalculator/Pages/ShowWindowDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd1dpbmRvd0RldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/Signup.razor]
+[D:/QuotationCalculator/QuotationCalculator/Pages/Signup.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbnVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Shared/SurveyPrompt.razor]
+[D:/QuotationCalculator/QuotationCalculator/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/_Imports.razor]
+[D:/QuotationCalculator/QuotationCalculator/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Shared/MainLayout.razor]
+[D:/QuotationCalculator/QuotationCalculator/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-b4zan8e7za
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Shared/NavMenu.razor]
+[D:/QuotationCalculator/QuotationCalculator/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-bkbwqlqra9
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/Error.cshtml]
+[D:/QuotationCalculator/QuotationCalculator/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Visual Studio/QuotationCalculator/QuotationCalculator/Pages/_Host.cshtml]
+[D:/QuotationCalculator/QuotationCalculator/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

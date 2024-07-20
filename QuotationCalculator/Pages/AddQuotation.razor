@@ -51,7 +51,7 @@
             <label for="Type">Select Type</label>
             <select name="Type" @onchange="OnWindowChanged">
                 <option value="none" selected disabled hidden>Select an Option</option>
-                @foreach (var win in WindowList)
+                @foreach (var win in windowList)
                 {
                     <option value="@win.WindowsId">@win.Type -- Rate: @win.Rate</option>
                 }
@@ -136,7 +136,7 @@
                     <td>@item.H6</td>
                     <td>@item.SQFT3</td>
                     <td>@item.SQFT6</td>
-                    <td>@item.WindowsAmount</td>
+                    <td>@item.Glass.GColor</td>
                     <td>@item.Window.Rate</td
                     <td>@item.Glass.Rate</td>
                     <td>@item.WindowsAmount</td>
@@ -159,10 +159,11 @@
     private CustomerDetails customer = new CustomerDetails();
     private GlassDetails glassDetails = new GlassDetails();
 
-    private string selectedWindowType="";
+    int selectedWindowId { get; set; }
     int selectedGlassId { get; set; }
+
     List<GlassDetails> glassList = DalGlassDetails.GetAllGlassDetails();
-    List<WindowDetails> WindowList = DalWindowDetails.GetAllWindowDetails();
+    List<WindowDetails> windowList = DalWindowDetails.GetAllWindowDetails();
 
 
     private float CalculateSQFT(float w,float h)
@@ -181,6 +182,25 @@
             return orignalValue +(standard- remainder);
         }
     }
+    private void HandleWindowSelection()
+    {
+        WindowDetails selectedWindow = new WindowDetails();
+        foreach (var window in windowList)
+        {
+            if (selectedWindowId == window.WindowsId)
+            {
+                selectedWindow = window;
+            }
+        }
+        if (selectedWindow != null)
+        {
+            newItem.Window = selectedWindow;
+        }
+        else
+        {
+            newItem.Window = new WindowDetails();
+        }
+    }
     private void HandleGlassSelection()
     {
         GlassDetails selectedGlass = new GlassDetails();
@@ -191,7 +211,6 @@
                 selectedGlass = glass;
             }
         }
-
         if (selectedGlass != null)
         {
             newItem.Glass = selectedGlass;
@@ -203,9 +222,7 @@
     }
     private void CalculateAllValues()
     {
-        newItem.Window = window;
-        quotation.CustomerMobile = customer.MobileNumber;
-        newItem.GlassId = glassDetails.GId;
+        newItem.GId = glassDetails.GId;
         newItem.QuotationId = quotation.QuotationId;
         newItem.WindowsId = window.WindowsId;
         newItem.GlassRate = glassDetails.Rate;
@@ -222,15 +239,16 @@
     }
     private void AddItemToList()
     {
-        CalculateAllValues();
+
         HandleGlassSelection();
+        HandleWindowSelection();
+        CalculateAllValues();
         if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
             || customer.MobileNumber==0
             || string.IsNullOrEmpty(customer.CustomerName))
-        {
-            JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
-        }
-
+            {
+                 JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
+            }
         else
         {
             if (quotation.Items.Count == 0)
@@ -252,25 +270,24 @@
                         item.GlassAmount = (newItem.SQFT3 * 200) * item.QTY;
                         newItem = new ItemDetails ();
                         window = new WindowDetails();
+                        glassDetails = new GlassDetails();
                         itemExists = true;
                         break;
                     }
                 }
-
                 if (itemExists)
                 {
-
                     JSRuntime.InvokeVoidAsync("alert", "Quotation Updated Successfully");
                 }
                 else
                 {
                     quotation.Items.Add(newItem);
                     newItem = new ItemDetails ();
+                    glassDetails = new GlassDetails();
                     window = new WindowDetails();
                 }
             }     
         }
-
     }
     protected override void OnInitialized()
     {
@@ -282,15 +299,14 @@
     }
     private void OnWindowChanged(ChangeEventArgs e)
     {
-        var selectedId = int.Parse(e.Value.ToString());
-        window = WindowList.FirstOrDefault(w => w.WindowsId == selectedId);
+        selectedWindowId = int.Parse(e.Value.ToString());
+        window = windowList.FirstOrDefault(w => w.WindowsId == selectedWindowId);
     }
     private void OnGlassChanged(ChangeEventArgs e)
     {
         selectedGlassId = int.Parse(e.Value.ToString());
         glassDetails = glassList.FirstOrDefault(g => g.GId == selectedGlassId);
     }
-
     private  async Task AddCustomer(CustomerDetails model)
     {
         List<CustomerDetails> customerDetails=DalCustomerDetails.GetAllCustomerDetails();
@@ -303,6 +319,7 @@
                 new SqlParameter("@MobileNumber", model.MobileNumber)
             };
             await DalCrud.SaveData("AddCustomerDetails",parameters);
+           // await JSRuntime.InvokeVoidAsync("alert", "Customer Added");
         }
         else
         {
@@ -310,6 +327,7 @@
         {
             if(model.MobileNumber==customer.MobileNumber)
             {
+               // await JSRuntime.InvokeVoidAsync("alert", "Customer Already Exist (IF)");
                 break;
             }
             else
@@ -321,13 +339,11 @@
                 new SqlParameter("@MobileNumber", model.MobileNumber)
             };
                 await DalCrud.SaveData("AddCustomerDetails",parameters);
-                await JSRuntime.InvokeVoidAsync("alert", "else");
+                //await JSRuntime.InvokeVoidAsync("alert", "Customer Added Successfuly(Else)");
                 break;
             }
         }
         }
-       
-
     }
     private async Task AddQuotationDetail(QuotationDetails model)
     {
@@ -339,7 +355,7 @@
                 new SqlParameter("@Remarks", model.Remarks)
             };
         await DalCrud.SaveData("AddQuotationDetails", parameters);
-        await JSRuntime.InvokeVoidAsync("alert", "Quotation Added");
+        //await JSRuntime.InvokeVoidAsync("alert", "Quotation Added");
     }
     private async Task AddItemDetails(QuotationDetails model)
     {
@@ -347,7 +363,7 @@
         {
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@GlassId", item.GlassId),
+                new SqlParameter("@GId", item.GId),
                 new SqlParameter("@QuotationId", item.QuotationId),
                 new SqlParameter("@WindowsId", item.WindowsId),
                 new SqlParameter("@Width", item.Width),
@@ -357,16 +373,21 @@
 
             };
             await DalCrud.SaveData("AddItemDetails", parameters);
-            await JSRuntime.InvokeVoidAsync("alert", "Item Added Added");
+           // await JSRuntime.InvokeVoidAsync("alert", "Item Added");
 
         }
     }
     private async Task OnSubmit()
     {
+        quotation.CustomerMobile = customer.MobileNumber;
         await AddCustomer(customer);
         await AddQuotationDetail(quotation);
         await AddItemDetails(quotation);
         await JSRuntime.InvokeVoidAsync("alert", "Quotation Submitted Successfully");
     }
 }
+
+\\ Sql output parameter 
+\\ indexing
+\\ 
 

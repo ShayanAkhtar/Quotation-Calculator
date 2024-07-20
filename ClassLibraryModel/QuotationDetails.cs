@@ -7,16 +7,12 @@ namespace ClassLibraryModel
         public QuotationDetails()
         {
             Items = new List<ItemDetails>();
-            string EightBitId = "";
             Guid obj = Guid.NewGuid();
             string gid = obj.ToString();
             Console.WriteLine(obj);
             string[] words = gid.Split("-");
-            for (int i = 0; i < 3; i++)
-            {
-                EightBitId = EightBitId + words[i];
-            }
-            QuotationId = EightBitId;
+            
+            QuotationId = words[0];
 
         }
 

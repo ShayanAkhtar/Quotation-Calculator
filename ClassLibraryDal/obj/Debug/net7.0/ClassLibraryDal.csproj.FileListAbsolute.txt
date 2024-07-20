@@ -13,3 +13,19 @@ D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibra
 D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryModel.dll
 D:\Visual Studio\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryModel.pdb
 D:\Visual Studio\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.csproj.CopyComplete
+D:\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryDal.deps.json
+D:\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryDal.dll
+D:\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryDal.pdb
+D:\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryModel.dll
+D:\QuotationCalculator\ClassLibraryDal\bin\Debug\net7.0\ClassLibraryModel.pdb
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.csproj.AssemblyReference.cache
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.GeneratedMSBuildEditorConfig.editorconfig
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.AssemblyInfoInputs.cache
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.AssemblyInfo.cs
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.csproj.CoreCompileInputs.cache
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.sourcelink.json
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLib.D446F51C.Up2Date
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.dll
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\refint\ClassLibraryDal.dll
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ClassLibraryDal.pdb
+D:\QuotationCalculator\ClassLibraryDal\obj\Debug\net7.0\ref\ClassLibraryDal.dll

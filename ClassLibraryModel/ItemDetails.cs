@@ -19,7 +19,7 @@ namespace ClassLibraryModel
 
         [Key]
         public int ItemId { get; set; }
-        public int GlassId { get; set; }
+        public int GId { get; set; }
         [ForeignKey("GlassDetailsId")]
         public GlassDetails Glass { get; set; }
         [ForeignKey("QuotationDetails")]
