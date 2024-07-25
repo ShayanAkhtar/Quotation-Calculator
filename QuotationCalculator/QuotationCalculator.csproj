@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="PDFsharp" Version="6.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ClassLibraryDal\ClassLibraryDal.csproj" />
     <ProjectReference Include="..\ClassLibraryModel\ClassLibraryModel.csproj" />
   </ItemGroup>

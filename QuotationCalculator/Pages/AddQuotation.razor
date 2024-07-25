@@ -318,7 +318,7 @@
                 new SqlParameter("@Address", model.Address),
                 new SqlParameter("@MobileNumber", model.MobileNumber)
             };
-            await DalCrud.SaveData("AddCustomerDetails",parameters);
+            await DalCrud.Manipulate("AddCustomerDetails",parameters);
            // await JSRuntime.InvokeVoidAsync("alert", "Customer Added");
         }
         else
@@ -338,7 +338,7 @@
                 new SqlParameter("@Address", model.Address),
                 new SqlParameter("@MobileNumber", model.MobileNumber)
             };
-                await DalCrud.SaveData("AddCustomerDetails",parameters);
+                await DalCrud.Manipulate("AddCustomerDetails",parameters);
                 //await JSRuntime.InvokeVoidAsync("alert", "Customer Added Successfuly(Else)");
                 break;
             }
@@ -354,7 +354,7 @@
                 new SqlParameter("@Date", model.Date),
                 new SqlParameter("@Remarks", model.Remarks)
             };
-        await DalCrud.SaveData("AddQuotationDetails", parameters);
+        await DalCrud.Manipulate("AddQuotationDetails", parameters);
         //await JSRuntime.InvokeVoidAsync("alert", "Quotation Added");
     }
     private async Task AddItemDetails(QuotationDetails model)
@@ -372,7 +372,7 @@
                 new SqlParameter("@GlassRate", item.GlassRate)
 
             };
-            await DalCrud.SaveData("AddItemDetails", parameters);
+            await DalCrud.Manipulate("AddItemDetails", parameters);
            // await JSRuntime.InvokeVoidAsync("alert", "Item Added");
 
         }
@@ -384,10 +384,6 @@
         await AddQuotationDetail(quotation);
         await AddItemDetails(quotation);
         await JSRuntime.InvokeVoidAsync("alert", "Quotation Submitted Successfully");
-    }
+    } 
 }
-
-\\ Sql output parameter 
-\\ indexing
-\\ 
 

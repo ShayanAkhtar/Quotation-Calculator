@@ -1,0 +1,55 @@
+﻿@page "/turkprofilslist"
+<PageTitle>TurkProfil Details</PageTitle>
+
+<h3>All Turk Profile Details</h3>
+
+@if (turkProfiles == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Profile Code</th>
+                    <th>Profile Function</th>
+                    <th>White Without Gasket (Rs./Ft)</th>
+                    <th>White With Gasket (Rs./Ft)</th>
+                    <th>Black Solid Color (Rs./Ft)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var profile in turkProfiles)
+                {
+                    <tr>
+                        <td>@profile.Id</td>
+                        <td>@profile.ProfileCode</td>
+                        <td>@profile.ProfileFunction</td>
+                        <td>@profile.WhiteWithoutGasket</td>
+                        <td>@profile.WhiteWithGasket</td>
+                        <td>@profile.BlackSolidColor</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<button class="btn btn-primary" @onclick="NavigateToAddTurkProfile">Add Turk Profile</button>
+
+@code {
+    private List<TurkProfileDetails> turkProfiles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        turkProfiles = await DalTurkProfileDetails.GetAllTurkProfilDetails();
+    }
+
+    private void NavigateToAddTurkProfile()
+    {
+        NavigationManager.NavigateTo("/addturkprofile");
+    }
+}

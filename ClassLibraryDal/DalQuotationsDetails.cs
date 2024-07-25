@@ -82,6 +82,44 @@ namespace ClassLibraryDal
 
             return quotation;
         }
+        public static async Task<List<QuotationDetails>> GetQuotationsByCustomerMobile(long customerMobile)
+        {
+            List<QuotationDetails> quotations = new List<QuotationDetails>();
+
+            try
+            {
+                using (SqlConnection con = DbHelper.GetConnection())
+                {
+                    await con.OpenAsync();
+                    using (SqlCommand cmd = new SqlCommand("GetQuotationsByCustomerMobile", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@CustomerMobile", customerMobile));
+
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (reader.Read())
+                            {
+                                QuotationDetails quotation = new QuotationDetails
+                                {
+                                    QuotationId = reader["QuotationId"].ToString(),
+                                    CustomerMobile = Convert.ToInt64(reader["CustomerMobile"]),
+                                    Date = Convert.ToDateTime(reader["Date"]),
+                                    Remarks = reader["Remarks"].ToString()
+                                };
+                                quotations.Add(quotation);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception Occurred: {ex.Message}");
+            }
+
+            return quotations;
+        }
 
     }
 }

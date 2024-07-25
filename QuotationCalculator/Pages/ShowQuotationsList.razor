@@ -1,13 +1,22 @@
 ﻿@page "/quotationslist"
 @using System.Data
-@inject NavigationManager Navigation
-@inject IJSRuntime JSRuntime
 
-<h3>Quotations List</h3>
+<h3>Quotations</h3>
+
+<div class="form-group">
+    <label for="search">Search by Customer Mobile</label>
+    <input type="text" id="search" class="form-control" @bind="searchTerm" @oninput="SearchQuotations" />
+</div>
+
+<br />
 
 @if (quotations == null)
 {
     <p><em>Loading...</em></p>
+}
+else if (!quotations.Any())
+{
+    <p>No quotations found.</p>
 }
 else
 {
@@ -21,6 +30,7 @@ else
                         <p class="card-text"><strong>Date:</strong> @quotation.Date.ToString("yyyy-MM-dd")</p>
                         <p class="card-text"><strong>Customer Mobile:</strong> @quotation.CustomerMobile</p>
                         <p class="card-text"><strong>Remarks:</strong> @quotation.Remarks</p>
+                        <button class="btn btn-primary" @onclick="() => ViewDetails(quotation.QuotationId)">View Details</button>
                     </div>
                 </div>
             </div>
@@ -30,9 +40,35 @@ else
 
 @code {
     private List<QuotationDetails> quotations;
+    private string searchTerm = "";
 
     protected override async Task OnInitializedAsync()
     {
         quotations = await DalQuotationsDetails.GetAllQuotations();
+    }
+
+    private void ViewDetails(string quotationId)
+    {
+        NavigationManager.NavigateTo($"/quotationdetails/{quotationId}");
+    }
+
+    private async Task SearchQuotations(ChangeEventArgs e)
+    {
+        searchTerm = e.Value.ToString();
+        if (string.IsNullOrEmpty(searchTerm))
+        {
+            quotations = await DalQuotationsDetails.GetAllQuotations();
+        }
+        else
+        {
+            if (long.TryParse(searchTerm, out long customerMobile))
+            {
+                quotations = await DalQuotationsDetails.GetQuotationsByCustomerMobile(customerMobile);
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("alert", "Please enter a valid phone number.");
+            }
+        }
     }
 }

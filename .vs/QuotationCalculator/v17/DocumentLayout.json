@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "D:\\QuotationCalculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\showquotationdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\showquotationdetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\showquotationslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\showquotationslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|d:\\quotationcalculator\\classlibrarydal\\dalquotationsdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|solutionrelative:classlibrarydal\\dalquotationsdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\addturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\addturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|d:\\quotationcalculator\\classlibrarydal\\dalturkprofiledetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|solutionrelative:classlibrarydal\\dalturkprofiledetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\showturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\showturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{288558E3-323B-4A54-8677-48207402A9C5}|ClassLibraryModel\\ClassLibraryModel.csproj|d:\\quotationcalculator\\classlibrarymodel\\turkprofiledetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{288558E3-323B-4A54-8677-48207402A9C5}|ClassLibraryModel\\ClassLibraryModel.csproj|solutionrelative:classlibrarymodel\\turkprofiledetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|d:\\quotationcalculator\\classlibrarydal\\dalcrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|solutionrelative:classlibrarydal\\dalcrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\addquotation.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\addquotation.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,75 +43,80 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ShowQuotationDetails.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowQuotationDetails.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\ShowQuotationDetails.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowQuotationDetails.razor",
-              "RelativeToolTip": "QuotationCalculator\\Pages\\ShowQuotationDetails.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-19T07:55:46.234Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "site.css",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "QuotationCalculator\\wwwroot\\css\\site.css",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "QuotationCalculator\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAAMUAAAAAAAAAAAAmwPkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-07-19T07:51:36.105Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DalQuotationsDetails.cs",
-              "DocumentMoniker": "D:\\QuotationCalculator\\ClassLibraryDal\\DalQuotationsDetails.cs",
-              "RelativeDocumentMoniker": "ClassLibraryDal\\DalQuotationsDetails.cs",
-              "ToolTip": "D:\\QuotationCalculator\\ClassLibraryDal\\DalQuotationsDetails.cs",
-              "RelativeToolTip": "ClassLibraryDal\\DalQuotationsDetails.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAIwC8AAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T07:44:14.211Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "ShowQuotationsList.razor",
               "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowQuotationsList.razor",
               "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\ShowQuotationsList.razor",
               "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowQuotationsList.razor",
               "RelativeToolTip": "QuotationCalculator\\Pages\\ShowQuotationsList.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-19T07:31:34.03Z"
+              "WhenOpened": "2024-07-25T15:20:49.967Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ShowTurkProfilDetails.razor",
+              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
+              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
+              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
+              "RelativeToolTip": "QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAACwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T12:02:40.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddTurkProfilDetails.razor",
+              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
+              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
+              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
+              "RelativeToolTip": "QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
+              "ViewState": "AQIAACYAAAAAAAAAAAAAADYAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T11:10:53.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TurkProfileDetails.cs",
+              "DocumentMoniker": "D:\\QuotationCalculator\\ClassLibraryModel\\TurkProfileDetails.cs",
+              "RelativeDocumentMoniker": "ClassLibraryModel\\TurkProfileDetails.cs",
+              "ToolTip": "D:\\QuotationCalculator\\ClassLibraryModel\\TurkProfileDetails.cs",
+              "RelativeToolTip": "ClassLibraryModel\\TurkProfileDetails.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T10:52:24.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DalTurkProfileDetails.cs",
+              "DocumentMoniker": "D:\\QuotationCalculator\\ClassLibraryDal\\DalTurkProfileDetails.cs",
+              "RelativeDocumentMoniker": "ClassLibraryDal\\DalTurkProfileDetails.cs",
+              "ToolTip": "D:\\QuotationCalculator\\ClassLibraryDal\\DalTurkProfileDetails.cs",
+              "RelativeToolTip": "ClassLibraryDal\\DalTurkProfileDetails.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA8wCoAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T09:24:26.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DalCRUD.cs",
               "DocumentMoniker": "D:\\QuotationCalculator\\ClassLibraryDal\\DalCRUD.cs",
               "RelativeDocumentMoniker": "ClassLibraryDal\\DalCRUD.cs",
               "ToolTip": "D:\\QuotationCalculator\\ClassLibraryDal\\DalCRUD.cs",
               "RelativeToolTip": "ClassLibraryDal\\DalCRUD.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAUwBwAAAB1AAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-19T07:30:18.802Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AddQuotation.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddQuotation.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\AddQuotation.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddQuotation.razor",
-              "RelativeToolTip": "QuotationCalculator\\Pages\\AddQuotation.razor",
-              "ViewState": "AQIAAGwBAAAAAAAAAAAQwHkBAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-19T07:24:54.166Z"
+              "WhenOpened": "2024-07-25T09:22:52.849Z",
+              "EditorCaption": ""
             }
           ]
         }

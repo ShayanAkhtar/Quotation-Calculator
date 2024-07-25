@@ -5,7 +5,7 @@ namespace ClassLibraryDal
 {
     public class DalCrud
     {
-        public static async Task SaveData(string ProcedureName, SqlParameter[] sqlParameters)
+        public static async Task Manipulate(string ProcedureName, SqlParameter[] sqlParameters)
         {
             try
             {
@@ -24,6 +24,20 @@ namespace ClassLibraryDal
             catch (Exception ex)
             {
                 Console.WriteLine($"Exception Occurred: {ex.Message}");
+            }
+        }
+        public static void DeleteData(string ProcedureName, string idParameterName, int id)
+        {
+            using (SqlConnection con = DbHelper.GetConnection())
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(ProcedureName, con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue(idParameterName, id);
+                    cmd.ExecuteNonQuery();
+                    con.CloseAsync();
+                }
             }
         }
         public static async Task<DataTable> ReadSpecificDataTable(string procedureName, SqlParameter[] sqlParameters)
@@ -55,42 +69,6 @@ namespace ClassLibraryDal
 
             return dt;
         }
-        public static void DeleteData(string ProcedureName, string idParameterName, int id)
-        {
-            using (SqlConnection con = DbHelper.GetConnection())
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand(ProcedureName, con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue(idParameterName, id);
-                    cmd.ExecuteNonQuery();
-                    con.CloseAsync();
-                }
-            }
-        }
-        public static async Task UpdateInfo<T>(string procedureName, SqlParameter[] sqlParameters, string idParameterName, int id)
-        {
-            try
-            {
-                using (SqlConnection con = DbHelper.GetConnection())
-                {
-                    await con.OpenAsync();
-                    using (SqlCommand cmd = new SqlCommand(procedureName, con))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue(idParameterName, id);
-                        cmd.Parameters.AddRange(sqlParameters);
-                        await cmd.ExecuteNonQueryAsync();
-                        await con.CloseAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Exception Occurred: {ex.Message}");
-            }
-        }
         public static async Task<DataTable> GetAllRecords(string ProcedureName)
         {
             DataTable dt = new DataTable();
@@ -120,7 +98,6 @@ namespace ClassLibraryDal
 
             return dt;
         }
-
 
     }
 }

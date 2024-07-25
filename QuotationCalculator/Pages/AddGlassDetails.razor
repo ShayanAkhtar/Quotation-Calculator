@@ -53,7 +53,7 @@
                 new SqlParameter("@Rate", glassDetails.Rate),
                 new SqlParameter("@Thickness", glassDetails.Thickness)
             };
-            await DalCrud.SaveData("AddGlassDetails",parameters);
+            await DalCrud.Manipulate("AddGlassDetails",parameters);
             //DalGlassDetails.AddGlassDetails(glassDetails);
             await JSRuntime.InvokeVoidAsync("alert", "Added successfully");
             glassDetails = new GlassDetails();
