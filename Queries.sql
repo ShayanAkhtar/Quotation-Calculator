@@ -194,6 +194,101 @@ BEGIN
     WHERE QuotationId = @QuotationId;
 END
 
+----------------------------TurkProfil-------------------------------
+
+--Create Turkprofil Table
+CREATE TABLE TurkProfilDetails (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ProfileCode FLOAT,
+    ProfileFunction NVARCHAR(100),
+    WhiteWithoutGasket FLOAT,
+    WhiteWithGasket FLOAT,
+    BlackSolidColor FLOAT
+);
+
+--Create AddTurkProfilDetails Proedure
+CREATE PROCEDURE AddTurkProfilDetails
+    @ProfileCode FLOAT,
+    @ProfileFunction NVARCHAR(100),
+    @WhiteWithoutGasket FLOAT,
+    @WhiteWithGasket FLOAT,
+    @BlackSolidColor FLOAT,
+    @Message NVARCHAR(100) OUTPUT
+AS
+BEGIN
+    BEGIN
+    INSERT INTO TurkProfilDetails (ProfileCode, ProfileFunction, WhiteWithoutGasket, WhiteWithGasket, BlackSolidColor)
+    VALUES (@ProfileCode, @ProfileFunction, @WhiteWithoutGasket, @WhiteWithGasket, @BlackSolidColor);
+END
+
+--Create DeleteTurkProfilDetails Proedure
+CREATE PROCEDURE DeleteTurkProfilDetails
+    @Id INT
+AS
+BEGIN
+    DELETE FROM TurkProfilDetails
+    WHERE Id = @Id;
+END
+
+--Create GetAllTurkProfil Procedure
+CREATE PROCEDURE GetAllTurkProfilDetails
+AS
+BEGIN
+    SELECT * FROM TurkProfilDetails;
+END
+-------------------------------------------------
+
+
+----------------------------SkyPen-------------------------------
+
+--Create SkyPen Table
+CREATE TABLE SkyPen (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ProfileCode FLOAT,
+    ProfileFunction NVARCHAR(100),
+    WhiteWithoutGasket FLOAT,
+    WhiteWithCoexGasket FLOAT,
+	WhiteWithTPVGasket FLOAT,
+    TBAndTDOWithTPVGasket FLOAT
+);
+
+--Create AddSkyPenDetails Procedure
+CREATE PROCEDURE AddSkyPenDetails
+    @ProfileCode FLOAT,
+    @ProfileFunction NVARCHAR(100),
+    @WhiteWithoutGasket FLOAT,
+    @WhiteWithCoexGasket FLOAT,
+    @WhiteWithTPVGasket FLOAT,
+    @TBAndTDOWithTPVGasket FLOAT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM SkyPen WHERE ProfileCode = @ProfileCode)
+    BEGIN
+        -- Record already exists, no need to proceed
+        RETURN;
+    END
+
+    INSERT INTO SkyPen (ProfileCode, ProfileFunction, WhiteWithoutGasket, WhiteWithCoexGasket, WhiteWithTPVGasket, TBAndTDOWithTPVGasket)
+    VALUES (@ProfileCode, @ProfileFunction, @WhiteWithoutGasket, @WhiteWithCoexGasket, @WhiteWithTPVGasket, @TBAndTDOWithTPVGasket);
+END
+
+--Create DeleteSkyPenDetails Procedure
+CREATE PROCEDURE DeleteSkyPenDetails
+    @Id INT
+AS
+BEGIN
+    DELETE FROM SkyPen
+    WHERE Id = @Id;
+END
+
+--Create GetAllSkyPenDetails Procedure
+CREATE PROCEDURE GetAllSkyPenDetails
+AS
+BEGIN
+    SELECT * FROM SkyPen;
+END
+-------------------------------------------------
+
 
 
 select * from QuotationDetails

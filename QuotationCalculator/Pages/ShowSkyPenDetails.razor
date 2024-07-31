@@ -1,0 +1,58 @@
+﻿@page "/skypenlist"
+
+<PageTitle>SkyPen Details</PageTitle>
+
+<h3>All SkyPen Profile Details</h3>
+
+@if (skyPenDetails == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Profile Code</th>
+                    <th>Profile Function</th>
+                    <th>White Without Gasket (Rs./Ft)</th>
+                    <th>White With Coex Gasket (Rs./Ft)</th>
+                    <th>White With TPV Gasket (Rs./Ft)</th>
+                    <th>TB And TDO With TPV Gasket (Rs./Ft)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pen in skyPenDetails)
+                {
+                    <tr>
+                        <td>@pen.Id</td>
+                        <td>@pen.ProfileCode</td>
+                        <td>@pen.ProfileFunction</td>
+                        <td>@pen.WhiteWithoutGasket</td>
+                        <td>@pen.WhiteWithCoexGasket</td>
+                        <td>@pen.WhiteWithTPVGasket</td>
+                        <td>@pen.TBAndTDOWithTPVGasket</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<button class="btn btn-primary" @onclick="NavigateToAddSkyPen">Add SkyPen Profile</button>
+
+@code {
+    private List<SkyPenDetails> skyPenDetails;
+
+    protected override async Task OnInitializedAsync()
+    {
+        skyPenDetails = await DalSkyPenDetails.GetAllSkyPenDetails();
+    }
+
+    private void NavigateToAddSkyPen()
+    {
+        NavigationManager.NavigateTo("/addskypen");
+    }
+}

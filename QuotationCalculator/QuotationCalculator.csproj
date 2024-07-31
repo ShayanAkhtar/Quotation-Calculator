@@ -15,4 +15,12 @@
     <ProjectReference Include="..\ClassLibraryModel\ClassLibraryModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ShowSkyPenDetails.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\ShowSkyPenDetails.razor" />
+  </ItemGroup>
+
 </Project>

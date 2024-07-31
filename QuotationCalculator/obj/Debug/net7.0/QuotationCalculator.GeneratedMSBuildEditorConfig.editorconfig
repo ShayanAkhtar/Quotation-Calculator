@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUXVvdGF0aW9uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/QuotationCalculator/QuotationCalculator/Pages/AddSkyPenDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkU2t5UGVuRGV0YWlscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/QuotationCalculator/QuotationCalculator/Pages/AddTurkProfilDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVHVya1Byb2ZpbERldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/QuotationCalculator/QuotationCalculator/Pages/ShowQuotationsList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd1F1b3RhdGlvbnNMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/QuotationCalculator/QuotationCalculator/Pages/ShowSkyPenDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd1NreVBlbkRldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/QuotationCalculator/QuotationCalculator/Pages/ShowTurkProfilDetails.razor]

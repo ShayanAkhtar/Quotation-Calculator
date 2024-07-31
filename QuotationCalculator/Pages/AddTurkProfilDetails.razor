@@ -1,42 +1,42 @@
-﻿@page "/addturkprofile"
+﻿@page "/addturkprofil"
 @using System.Data
 
 <h3>Add Turk Profile</h3>
 
 <div class="form-group">
     <label for="ProfileCode">Profile Code</label>
-    <input type="number" class="form-control" id="ProfileCode" @bind="turkProfile.ProfileCode" step="any" />
+    <input type="number" class="form-control" id="ProfileCode" @bind="turkProfil.ProfileCode" step="any" />
 </div>
 <div class="form-group">
     <label for="ProfileFunction">Profile Function</label>
-    <input type="text" class="form-control" id="ProfileFunction" @bind="turkProfile.ProfileFunction" />
+    <input type="text" class="form-control" id="ProfileFunction" @bind="turkProfil.ProfileFunction" />
 </div>
 <div class="form-group">
     <label for="WhiteWithoutGasket">White Without Gasket (Rs./Ft)</label>
-    <input type="number" class="form-control" id="WhiteWithoutGasket" @bind="turkProfile.WhiteWithoutGasket" step="any" />
+    <input type="number" class="form-control" id="WhiteWithoutGasket" @bind="turkProfil.WhiteWithoutGasket" step="any" />
 </div>
 <div class="form-group">
     <label for="WhiteWithGasket">White With Gasket (Rs./Ft)</label>
-    <input type="number" class="form-control" id="WhiteWithGasket" @bind="turkProfile.WhiteWithGasket" step="any" />
+    <input type="number" class="form-control" id="WhiteWithGasket" @bind="turkProfil.WhiteWithGasket" step="any" />
 </div>
 <div class="form-group">
     <label for="BlackSolidColor">Black Solid Color (Rs./Ft)</label>
-    <input type="number" class="form-control" id="BlackSolidColor" @bind="turkProfile.BlackSolidColor" step="any" />
+    <input type="number" class="form-control" id="BlackSolidColor" @bind="turkProfil.BlackSolidColor" step="any" />
 </div>
-<button class="btn btn-primary" @onclick="AddTurkProfile">Add Profile</button>
+<button class="btn btn-primary" @onclick="AddTurkProfil">Add Profil</button>
 
 <button class="btn btn-secondary" @onclick="GoBack">Back</button>
 
 @code {
-    private TurkProfileDetails turkProfile = new TurkProfileDetails();
-    private List<TurkProfileDetails> allProfils =new List<TurkProfileDetails>();
+    private TurkProfilDetails turkProfil = new TurkProfilDetails();
+    private List<TurkProfilDetails> allProfils =new List<TurkProfilDetails>();
     private string message = "";
 
 
-    private async Task AddTurkProfile()
+    private async Task AddTurkProfil()
     {
-        allProfils = await DalTurkProfileDetails.GetAllTurkProfilDetails();
-        if(allProfils.Any(p=>p.ProfileCode==turkProfile.ProfileCode))
+        allProfils = await DalTurkProfilDetails.GetAllTurkProfilDetails();
+        if(allProfils.Any(p=>p.ProfileCode==turkProfil.ProfileCode))
         {
             await JSRuntime.InvokeVoidAsync("alert","Record Already Exist");
         }
@@ -44,15 +44,15 @@
         {
             var parameters = new SqlParameter[]
         {
-            new SqlParameter("@ProfileCode", turkProfile.ProfileCode),
-            new SqlParameter("@ProfileFunction",turkProfile.ProfileFunction),
-            new SqlParameter("@WhiteWithoutGasket", turkProfile.WhiteWithoutGasket),
-            new SqlParameter("@WhiteWithGasket", turkProfile.WhiteWithGasket),
-            new SqlParameter("@BlackSolidColor", turkProfile.BlackSolidColor),
+            new SqlParameter("@ProfileCode", turkProfil.ProfileCode),
+            new SqlParameter("@ProfileFunction",turkProfil.ProfileFunction),
+            new SqlParameter("@WhiteWithoutGasket", turkProfil.WhiteWithoutGasket),
+            new SqlParameter("@WhiteWithGasket", turkProfil.WhiteWithGasket),
+            new SqlParameter("@BlackSolidColor", turkProfil.BlackSolidColor),
         };
             await DalCrud.Manipulate("AddTurkProfilDetails", parameters);
             await JSRuntime.InvokeVoidAsync("alert", "Added successfully");
-            turkProfile = new TurkProfileDetails();
+            turkProfil = new TurkProfilDetails();
         }
         
     }

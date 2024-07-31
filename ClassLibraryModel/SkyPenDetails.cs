@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryModel
 {
-    public class TurkProfilDetails
+    public class SkyPenDetails
     {
-        public int Id {  get; set; }
+        public int Id { get; set; }
         public float ProfileCode { get; set; }
         public string ProfileFunction { get; set; }
         public float WhiteWithoutGasket { get; set; }
-        public float WhiteWithGasket { get; set; }
-        public float BlackSolidColor { get; set; }
+        public float WhiteWithCoexGasket { get; set; }
+        public float WhiteWithTPVGasket { get; set; }
+        public float TBAndTDOWithTPVGasket { get; set; }
     }
 }

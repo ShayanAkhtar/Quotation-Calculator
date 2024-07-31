@@ -1,0 +1,67 @@
+﻿@page "/addskypen"
+@using System.Data
+
+<h3>Add SkyPen Profile</h3>
+
+<div class="form-group">
+    <label for="ProfileCode">Profile Code</label>
+    <input type="number" class="form-control" id="ProfileCode" @bind="skyPen.ProfileCode" step="any" />
+</div>
+<div class="form-group">
+    <label for="ProfileFunction">Profile Function</label>
+    <input type="text" class="form-control" id="ProfileFunction" @bind="skyPen.ProfileFunction" />
+</div>
+<div class="form-group">
+    <label for="WhiteWithoutGasket">White Without Gasket (Rs./Ft)</label>
+    <input type="number" class="form-control" id="WhiteWithoutGasket" @bind="skyPen.WhiteWithoutGasket" step="any" />
+</div>
+<div class="form-group">
+    <label for="WhiteWithCoexGasket">White With Coex Gasket (Rs./Ft)</label>
+    <input type="number" class="form-control" id="WhiteWithCoexGasket" @bind="skyPen.WhiteWithCoexGasket" step="any" />
+</div>
+<div class="form-group">
+    <label for="WhiteWithTPVGasket">White With TPV Gasket (Rs./Ft)</label>
+    <input type="number" class="form-control" id="WhiteWithTPVGasket" @bind="skyPen.WhiteWithTPVGasket" step="any" />
+</div>
+<div class="form-group">
+    <label for="TBAndTDOWithTPVGasket">TB And TDO With TPV Gasket (Rs./Ft)</label>
+    <input type="number" class="form-control" id="TBAndTDOWithTPVGasket" @bind="skyPen.TBAndTDOWithTPVGasket" step="any" />
+</div>
+<button class="btn btn-primary" @onclick="AddSkyPen">Add Profile</button>
+
+<button class="btn btn-secondary" @onclick="GoBack">Back</button>
+
+@code {
+    private SkyPenDetails skyPen = new SkyPenDetails();
+    private List<SkyPenDetails> allSkyPens = new List<SkyPenDetails>();
+    private string message = "";
+
+    private async Task AddSkyPen()
+    {
+        allSkyPens = await DalSkyPenDetails.GetAllSkyPenDetails();
+        if (allSkyPens.Any(p => p.ProfileCode == skyPen.ProfileCode))
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Record Already Exists");
+        }
+        else
+        {
+            var parameters = new SqlParameter[]
+            {
+                new SqlParameter("@ProfileCode", skyPen.ProfileCode),
+                new SqlParameter("@ProfileFunction", skyPen.ProfileFunction),
+                new SqlParameter("@WhiteWithoutGasket", skyPen.WhiteWithoutGasket),
+                new SqlParameter("@WhiteWithCoexGasket", skyPen.WhiteWithCoexGasket),
+                new SqlParameter("@WhiteWithTPVGasket", skyPen.WhiteWithTPVGasket),
+                new SqlParameter("@TBAndTDOWithTPVGasket", skyPen.TBAndTDOWithTPVGasket)
+            };
+            await DalCrud.Manipulate("AddSkyPenDetails", parameters);
+            await JSRuntime.InvokeVoidAsync("alert", "Added successfully");
+            skyPen = new SkyPenDetails(); // Reset the form
+        }
+    }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("/showallskypen");
+    }
+}

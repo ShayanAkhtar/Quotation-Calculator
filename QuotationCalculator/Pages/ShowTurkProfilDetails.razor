@@ -1,9 +1,9 @@
 ﻿@page "/turkprofilslist"
 <PageTitle>TurkProfil Details</PageTitle>
 
-<h3>All Turk Profile Details</h3>
+<h3>All Turk Profil Details</h3>
 
-@if (turkProfiles == null)
+@if (turkProfils == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -14,7 +14,7 @@ else
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Profile Code</th>
+                    <th>Profil Code</th>
                     <th>Profile Function</th>
                     <th>White Without Gasket (Rs./Ft)</th>
                     <th>White With Gasket (Rs./Ft)</th>
@@ -22,15 +22,15 @@ else
                 </tr>
             </thead>
             <tbody>
-                @foreach (var profile in turkProfiles)
+                @foreach (var profil in turkProfils)
                 {
                     <tr>
-                        <td>@profile.Id</td>
-                        <td>@profile.ProfileCode</td>
-                        <td>@profile.ProfileFunction</td>
-                        <td>@profile.WhiteWithoutGasket</td>
-                        <td>@profile.WhiteWithGasket</td>
-                        <td>@profile.BlackSolidColor</td>
+                        <td>@profil.Id</td>
+                        <td>@profil.ProfileCode</td>
+                        <td>@profil.ProfileFunction</td>
+                        <td>@profil.WhiteWithoutGasket</td>
+                        <td>@profil.WhiteWithGasket</td>
+                        <td>@profil.BlackSolidColor</td>
                     </tr>
                 }
             </tbody>
@@ -38,18 +38,18 @@ else
     </div>
 }
 
-<button class="btn btn-primary" @onclick="NavigateToAddTurkProfile">Add Turk Profile</button>
+<button class="btn btn-primary" @onclick="NavigateToAddTurkProfile">Add Turk Profil</button>
 
 @code {
-    private List<TurkProfileDetails> turkProfiles;
+    private List<TurkProfilDetails> turkProfils;
 
     protected override async Task OnInitializedAsync()
     {
-        turkProfiles = await DalTurkProfileDetails.GetAllTurkProfilDetails();
+        turkProfils = await DalTurkProfilDetails.GetAllTurkProfilDetails();
     }
 
     private void NavigateToAddTurkProfile()
     {
-        NavigationManager.NavigateTo("/addturkprofile");
+        NavigationManager.NavigateTo("/addturkprofil");
     }
 }
