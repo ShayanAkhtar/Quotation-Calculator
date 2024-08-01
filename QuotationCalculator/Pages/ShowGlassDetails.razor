@@ -1,4 +1,6 @@
 ﻿@page "/glassdetailslist"
+@attribute [Authorize(Roles = "Admin,User")]
+
 <h3>Glass Details</h3>
 <PageTitle>Glass Details</PageTitle>
 
@@ -19,17 +21,24 @@
                 <td>@glass.GColor</td>
                 <td>@glass.Rate</td>
                 <td>@glass.Thickness</td>
-                <button @onclick="() => DeleteGlassDetail(glass)" class="btn btn-bin">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
+                <AuthorizeView Roles="Admin">
+                    <button @onclick="() => DeleteGlassDetail(glass)" class="btn btn-bin">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </AuthorizeView>
+                
             </tr>
         }
     </tbody>
 </table>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <div class="mb-3">
+            <a href="/addglassdetails" class="btn btn-primary">Add Glass Details</a>
+        </div>
+    </Authorized>
+</AuthorizeView>
 
-<div class="mb-3">
-    <a href="/addglassdetails" class="btn btn-primary">Add Glass Details</a>
-</div>
 
 @code {
     List<GlassDetails> glassDetails = new List<GlassDetails>();

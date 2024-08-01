@@ -1,4 +1,6 @@
 ﻿@page "/addskypen"
+@attribute [Authorize(Roles = "Admin")]
+
 @using System.Data
 
 <h3>Add SkyPen Profile</h3>
@@ -62,6 +64,6 @@
 
     private void GoBack()
     {
-        NavigationManager.NavigateTo("/showallskypen");
+        NavigationManager.NavigateTo("/skypenlist");
     }
 }

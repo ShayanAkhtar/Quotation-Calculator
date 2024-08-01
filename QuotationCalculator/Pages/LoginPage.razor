@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/login"
 @using ClassLibraryDal;
 @using ClassLibraryModel;
 @using QuotationCalculator.Authentication
@@ -41,7 +41,7 @@
                     UserName = userFound.FullName,
                     Role = userFound.Role
                 });
-            NavigationManager.NavigateTo("/addquotation", true);
+            NavigationManager.NavigateTo("/", true);
         }
         else
         {

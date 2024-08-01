@@ -1,4 +1,6 @@
 ﻿@page "/addquotation"
+@attribute [Authorize(Roles = "Admin,User")]
+
 @using ClassLibraryModel;
 @inject IJSRuntime JSRuntime
 
@@ -100,6 +102,9 @@
     <button type="button" @onclick="AddItemToList">Add Item to List</button>
 
     <h3>Items List</h3>
+
+@if (quotation.Items != null && quotation.Items.Any())
+{
     <table class="item-table">
         <thead>
             <tr>
@@ -119,6 +124,7 @@
                 <th>Glass Unit Price</th>
                 <th>Windows Amount</th>
                 <th>Glass Amount</th>
+                <th>Actions</th> <!-- Added Actions column for the delete button -->
             </tr>
         </thead>
         <tbody>
@@ -137,17 +143,25 @@
                     <td>@item.SQFT3</td>
                     <td>@item.SQFT6</td>
                     <td>@item.Glass.GColor</td>
-                    <td>@item.Window.Rate</td
+                    <td>@item.Window.Rate</td>
                     <td>@item.Glass.Rate</td>
                     <td>@item.WindowsAmount</td>
                     <td>@item.GlassAmount</td>
+                    <td>
                         <button @onclick="() => DeleteItem(item)" class="btn btn-bin">
                             <i class="fas fa-trash-alt"></i>
                         </button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
+}
+else
+{
+    <p>No items to display.</p>
+}
+
 
     <button class="Submit-button" @onclick="OnSubmit" type="submit">Submit</button>
 </EditForm>

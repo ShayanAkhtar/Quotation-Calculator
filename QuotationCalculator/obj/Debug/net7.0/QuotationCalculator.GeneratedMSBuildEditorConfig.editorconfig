@@ -46,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/QuotationCalculator/QuotationCalculator/Pages/LoginPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5QYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/QuotationCalculator/QuotationCalculator/Pages/ShowGlassDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd0dsYXNzRGV0YWlscy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

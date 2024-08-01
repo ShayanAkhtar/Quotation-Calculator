@@ -11,5 +11,6 @@ namespace ClassLibraryModel
         public string? FullName { get; set; }
         public string? EmailAddress { get; set; }
         public string? Pass { get; set; }
+        public string? Role { get; set; }
     }
 }

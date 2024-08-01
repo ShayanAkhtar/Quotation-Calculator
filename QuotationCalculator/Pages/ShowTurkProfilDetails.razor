@@ -1,4 +1,6 @@
 ﻿@page "/turkprofilslist"
+@attribute [Authorize(Roles = "Admin,User")]
+
 <PageTitle>TurkProfil Details</PageTitle>
 
 <h3>All Turk Profil Details</h3>
@@ -37,8 +39,11 @@ else
         </table>
     </div>
 }
-
-<button class="btn btn-primary" @onclick="NavigateToAddTurkProfile">Add Turk Profil</button>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <button class="btn btn-primary" @onclick="NavigateToAddTurkProfile">Add Turk Profil</button>
+    </Authorized>
+</AuthorizeView>
 
 @code {
     private List<TurkProfilDetails> turkProfils;

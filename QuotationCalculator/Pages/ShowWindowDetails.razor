@@ -1,4 +1,6 @@
 ﻿@page "/windowdetailslist"
+@attribute [Authorize(Roles = "Admin,User")]
+
 @using ClassLibraryDal
 @using ClassLibraryModel
 <h3>Window Details</h3>
@@ -19,17 +21,25 @@
                 <td>@window.WindowsId</td>
                 <td>@window.Type</td>
                 <td>@window.Rate</td>
+                <AuthorizeView Roles="Admin">
+                    <Authorized>
                 <button @onclick="() => DeleteWindowDetail(window)" class="btn btn-bin">
                     <i class="fas fa-trash-alt"></i>
                 </button>
+                    </Authorized>
+                </AuthorizeView>
             </tr>
         }
     </tbody>
 </table>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <div class="mb-3">
+            <a href="/addwindowdetails" class="btn btn-primary">Add Window Details</a>
+        </div>
+    </Authorized>
+</AuthorizeView>
 
-<div class="mb-3">
-    <a href="/addwindowdetails" class="btn btn-primary">Add Window Details</a>
-</div>
 
 @code {
     List<WindowDetails> windowDetails = new List<WindowDetails>();

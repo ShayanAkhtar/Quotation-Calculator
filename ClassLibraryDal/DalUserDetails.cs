@@ -15,6 +15,7 @@ namespace ClassLibraryDal
             cmd.Parameters.AddWithValue("@FullName", model.FullName);
             cmd.Parameters.AddWithValue("@EmailAddress", model.EmailAddress);
             cmd.Parameters.AddWithValue("@Pass", model.Pass);
+            cmd.Parameters.AddWithValue("@Role", model.Role);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -34,7 +35,8 @@ namespace ClassLibraryDal
                 UserDetails user = new UserDetails
                 {
                     FullName = reader["Fullname"].ToString(),
-                    EmailAddress = reader["EmailAddress"].ToString()
+                    EmailAddress = reader["EmailAddress"].ToString(),
+                    Role = reader["Role"].ToString()
                 };
                 conn.Close();
                 return user;

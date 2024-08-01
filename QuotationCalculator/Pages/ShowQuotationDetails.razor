@@ -2,6 +2,7 @@
 @using System.Data
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
+@attribute [Authorize(Roles = "Admin,User")]
 
 <h3>Quotation Details</h3>
 

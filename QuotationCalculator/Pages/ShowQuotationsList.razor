@@ -1,5 +1,6 @@
 ﻿@page "/quotationslist"
 @using System.Data
+@attribute [Authorize(Roles = "Admin,User")]
 
 <h3>Quotations</h3>
 

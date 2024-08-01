@@ -1,4 +1,5 @@
 ﻿@page "/skypenlist"
+@attribute [Authorize(Roles = "Admin,User")]
 
 <PageTitle>SkyPen Details</PageTitle>
 
@@ -40,8 +41,11 @@ else
         </table>
     </div>
 }
-
-<button class="btn btn-primary" @onclick="NavigateToAddSkyPen">Add SkyPen Profile</button>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        <button class="btn btn-primary" @onclick="NavigateToAddSkyPen">Add SkyPen Profile</button>
+    </Authorized>
+</AuthorizeView>
 
 @code {
     private List<SkyPenDetails> skyPenDetails;

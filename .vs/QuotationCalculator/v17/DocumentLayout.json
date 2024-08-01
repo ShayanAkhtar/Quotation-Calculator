@@ -1,32 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\QuotationCalculator\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\showturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\showturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\showskypendetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\showskypendetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|d:\\quotationcalculator\\classlibrarydal\\dalskypendetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|solutionrelative:classlibrarydal\\dalskypendetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\addskypendetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\addskypendetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\addturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\addturkprofildetails.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,85 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NavMenu.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Shared\\NavMenu.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Shared\\NavMenu.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Shared\\NavMenu.razor",
-              "RelativeToolTip": "QuotationCalculator\\Shared\\NavMenu.razor",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACUAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T09:59:21.853Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DalSkyPenDetails.cs",
-              "DocumentMoniker": "D:\\QuotationCalculator\\ClassLibraryDal\\DalSkyPenDetails.cs",
-              "RelativeDocumentMoniker": "ClassLibraryDal\\DalSkyPenDetails.cs",
-              "ToolTip": "D:\\QuotationCalculator\\ClassLibraryDal\\DalSkyPenDetails.cs",
-              "RelativeToolTip": "ClassLibraryDal\\DalSkyPenDetails.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-31T09:58:31.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShowTurkProfilDetails.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
-              "RelativeToolTip": "QuotationCalculator\\Pages\\ShowTurkProfilDetails.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T09:55:37.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AddTurkProfilDetails.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
-              "RelativeToolTip": "QuotationCalculator\\Pages\\AddTurkProfilDetails.razor",
-              "ViewState": "AQIAACIAAAAAAAAAAAAqwEAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T09:47:47.639Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AddSkyPenDetails.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddSkyPenDetails.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\AddSkyPenDetails.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddSkyPenDetails.razor",
-              "RelativeToolTip": "QuotationCalculator\\Pages\\AddSkyPenDetails.razor",
-              "ViewState": "AQIAABgAAAAAAAAAAAAuwCgAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T09:47:14.295Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ShowSkyPenDetails.razor",
-              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowSkyPenDetails.razor",
-              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\ShowSkyPenDetails.razor",
-              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\ShowSkyPenDetails.razor",
-              "RelativeToolTip": "QuotationCalculator\\Pages\\ShowSkyPenDetails.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-31T09:47:01.165Z",
-              "EditorCaption": ""
             }
           ]
         }

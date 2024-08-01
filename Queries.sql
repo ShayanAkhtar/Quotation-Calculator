@@ -3,18 +3,24 @@ CREATE TABLE Users (
     UserId INT IDENTITY(1,1) PRIMARY KEY,
     FullName NVARCHAR(100) NOT NULL,
     EmailAddress NVARCHAR(100) NOT NULL UNIQUE,
-    Pass NVARCHAR(100) NOT NULL
+    Pass NVARCHAR(100) NOT NULL,
+	Role NVARCHAR(30) NOT NULL
 );
+
+--Add Admin 
+INSERT INTO Users (FullName, EmailAddress, Pass, Role)
+VALUES ('Admin', 'admin@gmail.com', 'admin', 'Admin');
 
 -- Create the Save_User stored procedure
 CREATE PROCEDURE Signup_User
     @FullName NVARCHAR(100),
     @EmailAddress NVARCHAR(100),
-    @Pass NVARCHAR(100)
+    @Pass NVARCHAR(100),
+	@Role NVARCHAR(30)
 AS
 BEGIN
-    INSERT INTO Users (FullName, EmailAddress, Pass)
-    VALUES (@FullName, @EmailAddress, @Pass);
+    INSERT INTO Users (FullName, EmailAddress, Pass,Role)
+    VALUES (@FullName, @EmailAddress, @Pass,@Role);
 END;
 
 -- Create the Login_User stored procedure
@@ -23,7 +29,7 @@ CREATE PROCEDURE Login_User
     @Pass NVARCHAR(100)
 AS
 BEGIN
-    SELECT FullName, EmailAddress
+    SELECT FullName, EmailAddress,Role
     FROM Users
     WHERE EmailAddress = @EmailAddress AND Pass = @Pass;
 END;
