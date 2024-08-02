@@ -11,7 +11,7 @@ namespace ClassLibraryDal
 {
     public class DalSkyPenDetails
     {
-        public static async Task<List<SkyPenDetails>> GetAllSkyPenDetails()
+        public static List<SkyPenDetails> GetAllSkyPenDetails()
         {
             List<SkyPenDetails> profiles = new List<SkyPenDetails>();
 
@@ -19,12 +19,12 @@ namespace ClassLibraryDal
             {
                 using (SqlConnection con = DbHelper.GetConnection())
                 {
-                    await con.OpenAsync();
+                     con.Open();
                     using (SqlCommand cmd = new SqlCommand("GetAllSkyPenDetails", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        using (SqlDataReader reader =  cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {

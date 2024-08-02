@@ -11,7 +11,7 @@ namespace ClassLibraryDal
 {
     public class DalTurkProfilDetails
     {
-        public static async Task<List<TurkProfilDetails>> GetAllTurkProfilDetails()
+        public static List<TurkProfilDetails> GetAllTurkProfilDetails()
         {
             List<TurkProfilDetails> profiles = new List<TurkProfilDetails>();
 
@@ -19,12 +19,12 @@ namespace ClassLibraryDal
             {
                 using (SqlConnection con = DbHelper.GetConnection())
                 {
-                    await con.OpenAsync();
+                    con.Open();
                     using (SqlCommand cmd = new SqlCommand("GetAllTurkProfilDetails", con))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        using (SqlDataReader reader =  cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {

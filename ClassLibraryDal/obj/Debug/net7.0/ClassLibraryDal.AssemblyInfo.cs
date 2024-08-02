@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClassLibraryDal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b43f76b3712f4d348804c03e1f8a480b1bfafabb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db7f60585416695ac674a84fb127da518588f549")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClassLibraryDal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClassLibraryDal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

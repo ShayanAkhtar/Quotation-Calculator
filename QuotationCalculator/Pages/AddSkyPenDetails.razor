@@ -40,7 +40,7 @@
 
     private async Task AddSkyPen()
     {
-        allSkyPens = await DalSkyPenDetails.GetAllSkyPenDetails();
+        allSkyPens =  DalSkyPenDetails.GetAllSkyPenDetails();
         if (allSkyPens.Any(p => p.ProfileCode == skyPen.ProfileCode))
         {
             await JSRuntime.InvokeVoidAsync("alert", "Record Already Exists");

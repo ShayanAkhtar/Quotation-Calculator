@@ -50,9 +50,9 @@ else
 @code {
     private List<SkyPenDetails> skyPenDetails;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        skyPenDetails = await DalSkyPenDetails.GetAllSkyPenDetails();
+        skyPenDetails =  DalSkyPenDetails.GetAllSkyPenDetails();
     }
 
     private void NavigateToAddSkyPen()

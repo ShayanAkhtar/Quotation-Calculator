@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\QuotationCalculator\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\pages\\addquotation.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\pages\\addquotation.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|d:\\quotationcalculator\\quotationcalculator\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A50BAB69-D4EE-4B5E-B4BD-E80AF4BCAC56}|QuotationCalculator\\QuotationCalculator.csproj|solutionrelative:quotationcalculator\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|d:\\quotationcalculator\\classlibrarydal\\dalcompanies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3DD02F5-77C4-4234-A253-A7D5F6920BD0}|ClassLibraryDal\\ClassLibraryDal.csproj|solutionrelative:classlibrarydal\\dalcompanies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "QuotationCalculator\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "QuotationCalculator\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAPAAAAAAAAAAAAAAAPsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-02T12:13:32.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DalCompanies.cs",
+              "DocumentMoniker": "D:\\QuotationCalculator\\ClassLibraryDal\\DalCompanies.cs",
+              "RelativeDocumentMoniker": "ClassLibraryDal\\DalCompanies.cs",
+              "ToolTip": "D:\\QuotationCalculator\\ClassLibraryDal\\DalCompanies.cs",
+              "RelativeToolTip": "ClassLibraryDal\\DalCompanies.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAUwA4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-02T07:25:40.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AddQuotation.razor",
+              "DocumentMoniker": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddQuotation.razor",
+              "RelativeDocumentMoniker": "QuotationCalculator\\Pages\\AddQuotation.razor",
+              "ToolTip": "D:\\QuotationCalculator\\QuotationCalculator\\Pages\\AddQuotation.razor",
+              "RelativeToolTip": "QuotationCalculator\\Pages\\AddQuotation.razor",
+              "ViewState": "AQIAAI8AAAAAAAAAAAAYwLcAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-02T07:01:52.136Z",
+              "EditorCaption": ""
             }
           ]
         }

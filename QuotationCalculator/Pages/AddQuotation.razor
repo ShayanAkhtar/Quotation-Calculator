@@ -52,7 +52,7 @@
         <div class="form-group select-group">
             <label for="Type">Select Type</label>
             <select name="Type" @onchange="OnWindowChanged">
-                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="none" selected disabled hidden>Select a Window</option>
                 @foreach (var win in windowList)
                 {
                     <option value="@win.WindowsId">@win.Type -- Rate: @win.Rate</option>
@@ -69,7 +69,7 @@
         <div class="form-group select-group">
             <label for="GlassSelection">Select Glass</label>
             <select id="GlassSelection" @onchange="OnGlassChanged">
-                <option value="0" selected disabled hidden>Select Glass</option>
+                <option value="0" selected disabled hidden>Select a Glass</option>
                 @foreach (var glass in glassList)
                 {
                     <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
@@ -97,6 +97,92 @@
             <InputNumber id="QTY" @bind-Value="newItem.QTY" />
         </div>
     </div>
+
+    <div class="form-row">
+        <div class="form-group select-group">
+            <label for="company">Select Company</label>
+            <select name="company" @onchange="OnCompanyChanged">
+                <option value="none" selected disabled hidden>Select a Company</option>
+                @foreach (var company in companiesList)
+                {
+                    <option value="@company.CompanyId">@company.CompanyName.Replace("Details", "")</option>
+                }
+            </select>
+        </div>
+
+        @if (company != null && company.CompanyName == "SkyPenDetails")
+        {
+            <div class="form-group select-group">
+                <label for="profiles">Select Profile</label>
+                <select name="profiles" @onchange="OnProfileChanged">
+                    <option value="" selected disabled hidden>Select a Profile</option>
+                    @foreach (var profile in skyPenDetails)
+                    {
+                        <option value="@profile.ProfileCode">@profile.ProfileFunction</option>
+                    }
+                </select>
+            </div>
+            
+        }
+        @if (company != null && company.CompanyName == "TurkProfilDetails")
+        {
+            <div class="form-group select-group">
+                <label for="profiles">Select Profile</label>
+                <select name="profiles" @onchange="OnProfileChanged">
+                    <option value="" selected disabled hidden>Select a Profile</option>
+                    @foreach (var profile in turkProfilDetails)
+                    {
+                        <option value="@profile.ProfileCode">@profile.ProfileFunction</option>
+                    }
+                </select>
+            </div>
+        }
+    </div>
+    @if (company != null && company.CompanyName == "SkyPenDetails")
+    {
+        <div class="form-group radio-group">
+            <label>Select Gasket Option</label>
+            <div class="radio-container">
+                <div>
+                    <input type="radio" id="whiteWithoutGasket" name="gasketOption" value="White Without Gasket" @onchange="OnGasketOptionChanged">
+                    <label for="whiteWithoutGasket">White Without Gasket</label>
+                </div>
+                <div>
+                    <input type="radio" id="whiteWithCoexGasket" name="gasketOption" value="White With Coex Gasket" @onchange="OnGasketOptionChanged">
+                    <label for="whiteWithCoexGasket">White With Coex Gasket</label>
+                </div>
+                <div>
+                    <input type="radio" id="whiteWithTpvGasket" name="gasketOption" value="White With TPV Gasket" @onchange="OnGasketOptionChanged">
+                    <label for="whiteWithTpvGasket">White With TPV Gasket</label>
+                </div>
+                <div>
+                    <input type="radio" id="tbAndTdoWithTpvGasket" name="gasketOption" value="TB And TDO With TPV Gasket (Rs./Ft)" @onchange="OnGasketOptionChanged">
+                    <label for="tbAndTdoWithTpvGasket">TB And TDO With TPV Gasket (Rs./Ft)</label>
+                </div>
+            </div>
+        </div>
+    }
+    @if (company != null && company.CompanyName == "TurkProfilDetails")
+    {
+        <div class="form-group radio-group">
+            <label>Select Gasket Option</label>
+            <div class="radio-container">
+                <div>
+                    <input type="radio" id="whiteWithoutGasket" name="gasketOption" value="White Without Gasket" @onchange="OnGasketOptionChanged">
+                    <label for="whiteWithoutGasket">White Without Gasket</label>
+                </div>
+                <div>
+                    <input type="radio" id="whiteWithGasket" name="gasketOption" value="White With Gasket" @onchange="OnGasketOptionChanged">
+                    <label for="whiteWithGasket">White With Gasket</label>
+                </div>
+                <div>
+                    <input type="radio" id="blackSolidColor" name="gasketOption" value="Black Solid Color" @onchange="OnGasketOptionChanged">
+                    <label for="blackSolidColor">Black Solid Color</label>
+                </div>
+            </div>
+        </div>
+    }
+
 
 
     <button type="button" @onclick="AddItemToList">Add Item to List</button>
@@ -166,18 +252,28 @@ else
     <button class="Submit-button" @onclick="OnSubmit" type="submit">Submit</button>
 </EditForm>
 
+
+
 @code {
     private QuotationDetails quotation = new QuotationDetails();
     private ItemDetails newItem = new ItemDetails();
     private WindowDetails window = new WindowDetails();
     private CustomerDetails customer = new CustomerDetails();
     private GlassDetails glassDetails = new GlassDetails();
+    private CompanyDetails company = new CompanyDetails();
 
-    int selectedWindowId { get; set; }
-    int selectedGlassId { get; set; }
+    private int selectedCompanyId;
+    private int selectedWindowId { get; set; }
+    private int selectedGlassId { get; set; }
+    private float selectedProfileId{ get; set; }
+    private string selectedGasketOption;
 
-    List<GlassDetails> glassList = DalGlassDetails.GetAllGlassDetails();
-    List<WindowDetails> windowList = DalWindowDetails.GetAllWindowDetails();
+    private List<SkyPenDetails> skyPenDetails = new List<SkyPenDetails>();
+    private List<TurkProfilDetails> turkProfilDetails = new List<TurkProfilDetails>();
+    private List<GlassDetails> glassList = new List<GlassDetails>();
+    private List<WindowDetails> windowList = new List<WindowDetails>();
+    private List<CompanyDetails> companiesList = new List<CompanyDetails>();
+
 
 
     private float CalculateSQFT(float w,float h)
@@ -260,9 +356,9 @@ else
         if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
             || customer.MobileNumber==0
             || string.IsNullOrEmpty(customer.CustomerName))
-            {
-                 JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
-            }
+        {
+            JSRuntime.InvokeVoidAsync("alert", "Please Enter Data!");
+        }
         else
         {
             if (quotation.Items.Count == 0)
@@ -305,6 +401,9 @@ else
     }
     protected override void OnInitialized()
     {
+        glassList = DalGlassDetails.GetAllGlassDetails();
+        windowList = DalWindowDetails.GetAllWindowDetails();
+        companiesList = DalCompanies.GetAllCompaniesDetails();
         quotation.Date = DateTime.Now;
     }
     private void DeleteItem(ItemDetails item)
@@ -320,6 +419,34 @@ else
     {
         selectedGlassId = int.Parse(e.Value.ToString());
         glassDetails = glassList.FirstOrDefault(g => g.GId == selectedGlassId);
+    }
+    private void OnProfileChanged(ChangeEventArgs e)
+    {
+        selectedProfileId = float.Parse(e.Value.ToString());
+    }
+    private void OnGasketOptionChanged(ChangeEventArgs e)
+    {
+        selectedGasketOption = e.Value.ToString();
+    }
+    private void OnCompanyChanged(ChangeEventArgs e)
+    {
+        selectedCompanyId = int.Parse(e.Value.ToString());
+        company = companiesList.FirstOrDefault(c => c.CompanyId == selectedCompanyId);
+        if (company != null)
+        {
+             LoadProfiles(company);
+        }
+    }
+    private void LoadProfiles(CompanyDetails companyDetails)
+    {
+        if(companyDetails.CompanyName=="SkyPenDetails")
+        {
+            skyPenDetails = DalSkyPenDetails.GetAllSkyPenDetails();
+        }
+        else if (companyDetails.CompanyName == "TurkProfilDetails")
+        {
+            turkProfilDetails = DalTurkProfilDetails.GetAllTurkProfilDetails();
+        }
     }
     private  async Task AddCustomer(CustomerDetails model)
     {

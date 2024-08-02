@@ -50,7 +50,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        turkProfils = await DalTurkProfilDetails.GetAllTurkProfilDetails();
+        turkProfils =  DalTurkProfilDetails.GetAllTurkProfilDetails();
     }
 
     private void NavigateToAddTurkProfile()

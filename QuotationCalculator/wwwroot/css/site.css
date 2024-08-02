@@ -249,6 +249,18 @@ input[type=number] {
 }
 
 
+/*Radio Button Styling*/
+.radio-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+    .radio-container div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
 
 
 

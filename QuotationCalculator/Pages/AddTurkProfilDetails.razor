@@ -37,7 +37,7 @@
 
     private async Task AddTurkProfil()
     {
-        allProfils = await DalTurkProfilDetails.GetAllTurkProfilDetails();
+        allProfils =  DalTurkProfilDetails.GetAllTurkProfilDetails();
         if(allProfils.Any(p=>p.ProfileCode==turkProfil.ProfileCode))
         {
             await JSRuntime.InvokeVoidAsync("alert","Record Already Exist");

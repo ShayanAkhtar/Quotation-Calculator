@@ -200,6 +200,25 @@ BEGIN
     WHERE QuotationId = @QuotationId;
 END
 
+----------------------------Companies-------------------------------
+--Create Companies table
+CREATE TABLE Companies (
+    CompanyId INT IDENTITY(1,1) PRIMARY KEY,
+    CompanyName NVARCHAR(100) NOT NULL
+);
+
+--Insert SkypenDetails & TurkProfilDetails in Companies
+INSERT INTO Companies (CompanyName)
+VALUES ('SkyPenDetails'),('TurkProfilDetails');
+
+--Create GetAllCompanies Procedure
+CREATE PROCEDURE GetAllCompanies
+AS
+BEGIN
+    SELECT * FROM Companies;
+END;
+
+
 ----------------------------TurkProfil-------------------------------
 
 --Create Turkprofil Table
