@@ -55,16 +55,13 @@
                 <option value="none" selected disabled hidden>Select a Window</option>
                 @foreach (var win in windowList)
                 {
-                    <option value="@win.WindowsId">@win.Type -- Rate: @win.Rate</option>
+                    <option value="@win.WindowsId">@win.Type</option>
                 }
             </select>
         </div>
-        <div class="form-group">
-            <label for="Window Price">Window Price</label>
-            <InputNumber id="Window Price" @bind-Value="window.Rate" />
-        </div>
-    </div>
 
+    </div>
+    @*
     <div class="form-row">
         <div class="form-group select-group">
             <label for="GlassSelection">Select Glass</label>
@@ -81,6 +78,7 @@
             <InputNumber id="Glass Price" @bind-Value="glassDetails.Rate" />
         </div>
     </div>
+    *@
 
     <div class="form-row">
         <div class="form-group">
@@ -98,18 +96,220 @@
         </div>
     </div>
 
-    <div class="form-row">
-        <div class="form-group select-group">
-            <label for="company">Select Company</label>
-            <select name="company" @onchange="OnCompanyChanged">
-                <option value="none" selected disabled hidden>Select a Company</option>
-                @foreach (var company in companiesList)
-                {
-                    <option value="@company.CompanyId">@company.CompanyName.Replace("Details", "")</option>
-                }
-            </select>
-        </div>
 
+
+    <button type="button" @onclick="AddItemToList">Add Item to List</button>
+    <div class="form-group">
+        <h3>Items List</h3>
+        @if (quotation.Items != null && quotation.Items.Any())
+        {
+            <table class="item-table">
+                <thead>
+                    <tr>
+                        <th>Sr#</th>
+
+                        <th>Type</th>
+                        <th>Width</th>
+                        <th>Height</th>
+                        <th>Qty</th>
+                        <th>SQFT</th>
+                        <th>3W</th>
+                        <th>3H</th>
+                        <th>6W</th>
+                        <th>6H</th>
+                        <th>3"SQFT</th>
+                        <th>6"SQFT</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in quotation.Items)
+                    {
+                        <tr>
+                            <td>1</td>
+                            <td>@item.Window.Type</td>
+                            <td>@item.Width</td>
+                            <td>@item.Height</td>
+                            <td>@item.QTY</td>
+                            <td>@item.SQFT</td>
+                            <td>@item.W3</td>
+                            <td>@item.H3</td>
+                            <td>@item.W6</td>
+                            <td>@item.H6</td>
+                            <td>@item.SQFT3</td>
+                            <td>@item.SQFT6</td>
+
+                            <td>
+                                <button @onclick="() => DeleteItem(item)" class="btn btn-bin">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No items to display.</p>
+        }
+    </div>
+
+
+@*
+    <div class="form-group">
+    <button class="Select Material" @onclick="ShowMaterialSelection" type="button">Select Material</button>
+
+    </div>
+*@
+   <div class="form-group">
+        @if (showMaterialSelection)
+        {
+            <div class="form-row">
+                <div class="form-group select-group">
+                    <label for="company">Select Company</label>
+                    <select name="company" @onchange="OnCompanyChanged">
+                        <option value="none" selected disabled hidden>Select a Company</option>
+                        @foreach (var company in companiesList)
+                        {
+                            <option value="@company.CompanyId">@company.CompanyName.Replace("Details", "")</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    @if (showFixedTypeCard)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Fixed Window</h5>
+                                <div class="form-group">
+                                    <label for="width">Width</label>
+                                    <input type="text" id="width" class="form-control" value="@(totalWidth*2)" readonly />
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height</label>
+                                    <input type="text" id="height" class="form-control" value="@(totalHeight*2)" readonly />
+                                </div>
+                                @if (company != null && company.CompanyName == "SkyPenDetails")
+                                {
+                                    <div class="form-group select-group">
+                                        <label for="profiles">Select Profile</label>
+                                        <select name="profiles" @onchange="OnProfileChanged">
+                                            <option value="" selected disabled hidden>Select a Profile</option>
+                                            <option value="601.1,605.1">Openable Frame 60mm/Openable Beading 5mm</option>
+                                            <option value="601.1,605.3">Openable Frame 60mm/Openable Beading 12mm</option>
+                                            <option value="601.1,605.4">Openable Frame 60mm/Openable Beading 16mm</option>
+                                            <option value="601.1,605.5">Openable Frame 60mm/Openable Beading 20mm</option>
+                                            <option value="601.2,605.12">Frame Royal(3 Chamber) 60mm/Openable Beading 5mm ROYAL</option>
+                                            <option value="601.2,605.6">Frame Royal(3 Chamber) 60mm/Openable Beading 24mm ROYAL</option>
+                                            <option value="601.3,605.12">Frame Royal(5 Chamber) 60mm/Openable Beading 5mm ROYAL</option>
+                                            <option value="601.3,605.6">Frame Royal(5 Chamber) 60mm/Openable Beading 24mm ROYAL</option>
+
+                                        </select>
+                                    </div>
+
+                                }
+                                @if (company != null && company.CompanyName == "TurkProfilDetails")
+                                {
+                                    <div class="form-group select-group">
+                                        <label for="profiles">Select Profile</label>
+                                        <select name="profiles" @onchange="OnProfileChanged">
+                                            <option value="" selected disabled hidden>Select a Profile</option>
+                                            @foreach (var profile in turkProfilDetails)
+                                            {
+                                                <option value="@profile.ProfileCode">@profile.ProfileFunction</option>
+                                            }
+                                        </select>
+                                    </div>
+                                }
+                                <div class="form-group select-group">
+                                    <label for="GlassSelection">Select Glass</label>
+                                    <select id="GlassSelection" @onchange="OnGlassChanged">
+                                        <option value="0" selected disabled hidden>Select a Glass</option>
+                                        @foreach (var glass in glassList)
+                                        {
+                                            <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="form-group">
+                    @if (showOpenableTypeCard)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Openable Window</h5>
+                                <div class="form-group">
+                                    <label for="width">Width</label>
+                                    <input type="text" id="width" class="form-control" value="@(totalWidth*2)" readonly />
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height</label>
+                                    <input type="text" id="height" class="form-control" value="@(totalHeight*2)" readonly />
+                                </div>
+                                @if (company != null && company.CompanyName == "SkyPenDetails")
+                                {
+                                    <div class="form-group select-group">
+                                        <label for="profiles">Select Profile</label>
+                                        <select name="profiles" @onchange="OnProfileChanged">
+                                            <option value="" selected disabled hidden>Select a Profile</option>
+                                            <option value="601.1,605.1">Openable Frame 60mm/Openable Beading 5mm</option>
+                                            <option value="601.1,605.3">Openable Frame 60mm/Openable Beading 12mm</option>
+                                            <option value="601.1,605.4">Openable Frame 60mm/Openable Beading 16mm</option>
+                                            <option value="601.1,605.5">Openable Frame 60mm/Openable Beading 20mm</option>
+                                            <option value="601.2,605.12">Frame Royal(3 Chamber) 60mm/Openable Beading 5mm ROYAL</option>
+                                            <option value="601.2,605.6">Frame Royal(3 Chamber) 60mm/Openable Beading 24mm ROYAL</option>
+                                            <option value="601.3,605.12">Frame Royal(5 Chamber) 60mm/Openable Beading 5mm ROYAL</option>
+                                            <option value="601.3,605.6">Frame Royal(5 Chamber) 60mm/Openable Beading 24mm ROYAL</option>
+
+                                        </select>
+                                    </div>
+
+                                }
+                                @if (company != null && company.CompanyName == "TurkProfilDetails")
+                                {
+                                    <div class="form-group select-group">
+                                        <label for="profiles">Select Profile</label>
+                                        <select name="profiles" @onchange="OnProfileChanged">
+                                            <option value="" selected disabled hidden>Select a Profile</option>
+                                            @foreach (var profile in turkProfilDetails)
+                                            {
+                                                <option value="@profile.ProfileCode">@profile.ProfileFunction</option>
+                                            }
+                                        </select>
+                                    </div>
+                                }
+                                <div class="form-group select-group">
+                                    <label for="GlassSelection">Select Glass</label>
+                                    <select id="GlassSelection" @onchange="OnGlassChanged">
+                                        <option value="0" selected disabled hidden>Select a Glass</option>
+                                        @foreach (var glass in glassList)
+                                        {
+                                            <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button class="Submit-button" @onclick="OnSubmit" type="submit">Submit</button>
+            </div>
+        }
+   </div>
+
+
+        @*
+
+        
         @if (company != null && company.CompanyName == "SkyPenDetails")
         {
             <div class="form-group select-group">
@@ -122,7 +322,7 @@
                     }
                 </select>
             </div>
-            
+
         }
         @if (company != null && company.CompanyName == "TurkProfilDetails")
         {
@@ -138,123 +338,16 @@
             </div>
         }
     </div>
-    @if (company != null && company.CompanyName == "SkyPenDetails")
-    {
-        <div class="form-group radio-group">
-            <label>Select Gasket Option</label>
-            <div class="radio-container">
-                <div>
-                    <input type="radio" id="whiteWithoutGasket" name="gasketOption" value="White Without Gasket" @onchange="OnGasketOptionChanged">
-                    <label for="whiteWithoutGasket">White Without Gasket</label>
-                </div>
-                <div>
-                    <input type="radio" id="whiteWithCoexGasket" name="gasketOption" value="White With Coex Gasket" @onchange="OnGasketOptionChanged">
-                    <label for="whiteWithCoexGasket">White With Coex Gasket</label>
-                </div>
-                <div>
-                    <input type="radio" id="whiteWithTpvGasket" name="gasketOption" value="White With TPV Gasket" @onchange="OnGasketOptionChanged">
-                    <label for="whiteWithTpvGasket">White With TPV Gasket</label>
-                </div>
-                <div>
-                    <input type="radio" id="tbAndTdoWithTpvGasket" name="gasketOption" value="TB And TDO With TPV Gasket (Rs./Ft)" @onchange="OnGasketOptionChanged">
-                    <label for="tbAndTdoWithTpvGasket">TB And TDO With TPV Gasket (Rs./Ft)</label>
-                </div>
-            </div>
-        </div>
-    }
-    @if (company != null && company.CompanyName == "TurkProfilDetails")
-    {
-        <div class="form-group radio-group">
-            <label>Select Gasket Option</label>
-            <div class="radio-container">
-                <div>
-                    <input type="radio" id="whiteWithoutGasket" name="gasketOption" value="White Without Gasket" @onchange="OnGasketOptionChanged">
-                    <label for="whiteWithoutGasket">White Without Gasket</label>
-                </div>
-                <div>
-                    <input type="radio" id="whiteWithGasket" name="gasketOption" value="White With Gasket" @onchange="OnGasketOptionChanged">
-                    <label for="whiteWithGasket">White With Gasket</label>
-                </div>
-                <div>
-                    <input type="radio" id="blackSolidColor" name="gasketOption" value="Black Solid Color" @onchange="OnGasketOptionChanged">
-                    <label for="blackSolidColor">Black Solid Color</label>
-                </div>
-            </div>
-        </div>
-    }
+        *@
 
 
-
-    <button type="button" @onclick="AddItemToList">Add Item to List</button>
-
-    <h3>Items List</h3>
-
-@if (quotation.Items != null && quotation.Items.Any())
-{
-    <table class="item-table">
-        <thead>
-            <tr>
-                <th>Qty</th>
-                <th>Type</th>
-                <th>Width</th>
-                <th>Height</th>
-                <th>SQFT</th>
-                <th>3W</th>
-                <th>3H</th>
-                <th>6W</th>
-                <th>6H</th>
-                <th>3"SQFT</th>
-                <th>6"SQFT</th>
-                <th>Glass Color</th>
-                <th>Window Unit Price</th>
-                <th>Glass Unit Price</th>
-                <th>Windows Amount</th>
-                <th>Glass Amount</th>
-                <th>Actions</th> <!-- Added Actions column for the delete button -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in quotation.Items)
-            {
-                <tr>
-                    <td>@item.QTY</td>
-                    <td>@item.Window.Type</td>
-                    <td>@item.Width</td>
-                    <td>@item.Height</td>
-                    <td>@item.SQFT</td>
-                    <td>@item.W3</td>
-                    <td>@item.H3</td>
-                    <td>@item.W6</td>
-                    <td>@item.H6</td>
-                    <td>@item.SQFT3</td>
-                    <td>@item.SQFT6</td>
-                    <td>@item.Glass.GColor</td>
-                    <td>@item.Window.Rate</td>
-                    <td>@item.Glass.Rate</td>
-                    <td>@item.WindowsAmount</td>
-                    <td>@item.GlassAmount</td>
-                    <td>
-                        <button @onclick="() => DeleteItem(item)" class="btn btn-bin">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No items to display.</p>
-}
-
-
-    <button class="Submit-button" @onclick="OnSubmit" type="submit">Submit</button>
 </EditForm>
 
 
 
 @code {
+
+    //Objects
     private QuotationDetails quotation = new QuotationDetails();
     private ItemDetails newItem = new ItemDetails();
     private WindowDetails window = new WindowDetails();
@@ -266,16 +359,27 @@ else
     private int selectedWindowId { get; set; }
     private int selectedGlassId { get; set; }
     private float selectedProfileId{ get; set; }
+    private float selectedBeadingId{ get; set; }
+    private double totalHeight;
+    private double totalWidth;
     private string selectedGasketOption;
 
+    //Flags
+    private bool showMaterialSelection = false;
+    private bool showFixedTypeCard = false;
+    private bool showSlidingTypeCard = false;
+    private bool showOpenableTypeCard = false;
+    private bool showDoorTypeCard = false;
+    private bool showFrontDoorTypeCard = false;
+
+    //Lists
     private List<SkyPenDetails> skyPenDetails = new List<SkyPenDetails>();
     private List<TurkProfilDetails> turkProfilDetails = new List<TurkProfilDetails>();
     private List<GlassDetails> glassList = new List<GlassDetails>();
     private List<WindowDetails> windowList = new List<WindowDetails>();
     private List<CompanyDetails> companiesList = new List<CompanyDetails>();
 
-
-
+    //Functions
     private float CalculateSQFT(float w,float h)
     {
         return (w * h) / 144;
@@ -330,6 +434,11 @@ else
             newItem.Glass = new GlassDetails();
         }
     }
+    private void ShowMaterialSelection()
+    {
+        showMaterialSelection = true;
+
+    }
     private void CalculateAllValues()
     {
         newItem.GId = glassDetails.GId;
@@ -353,6 +462,18 @@ else
         HandleGlassSelection();
         HandleWindowSelection();
         CalculateAllValues();
+        totalHeight +=Math.Ceiling(newItem.Height/12)*newItem.QTY;
+        totalWidth += Math.Ceiling(newItem.Width/12) * newItem.QTY;
+        showMaterialSelection = true;
+
+        if (window.Type == "Fix")
+        {
+            showFixedTypeCard = true;
+        }
+        else if (window.Type == "Openable")
+        {
+            showOpenableTypeCard = true;
+        }
         if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
             || customer.MobileNumber==0
             || string.IsNullOrEmpty(customer.CustomerName))
@@ -409,11 +530,18 @@ else
     private void DeleteItem(ItemDetails item)
     {
         quotation.Items.Remove(item);
+        totalHeight -= (item.Height * item.QTY);
+        totalWidth -= (item.Width * item.QTY);
+        if(totalHeight==0 || totalWidth==0)
+        {
+            showMaterialSelection = false;
+        }
     }
     private void OnWindowChanged(ChangeEventArgs e)
     {
         selectedWindowId = int.Parse(e.Value.ToString());
         window = windowList.FirstOrDefault(w => w.WindowsId == selectedWindowId);
+
     }
     private void OnGlassChanged(ChangeEventArgs e)
     {
@@ -422,7 +550,13 @@ else
     }
     private void OnProfileChanged(ChangeEventArgs e)
     {
-        selectedProfileId = float.Parse(e.Value.ToString());
+        var values = e.Value?.ToString()?.Split(','); 
+
+        selectedProfileId = float.Parse(values[0]);
+        selectedBeadingId = float.Parse(values[1]);
+        JSRuntime.InvokeVoidAsync("alert", selectedProfileId);
+        JSRuntime.InvokeVoidAsync("alert", selectedBeadingId);
+
     }
     private void OnGasketOptionChanged(ChangeEventArgs e)
     {
@@ -434,7 +568,7 @@ else
         company = companiesList.FirstOrDefault(c => c.CompanyId == selectedCompanyId);
         if (company != null)
         {
-             LoadProfiles(company);
+            LoadProfiles(company);
         }
     }
     private void LoadProfiles(CompanyDetails companyDetails)
@@ -460,30 +594,30 @@ else
                 new SqlParameter("@MobileNumber", model.MobileNumber)
             };
             await DalCrud.Manipulate("AddCustomerDetails",parameters);
-           // await JSRuntime.InvokeVoidAsync("alert", "Customer Added");
+            // await JSRuntime.InvokeVoidAsync("alert", "Customer Added");
         }
         else
         {
-             foreach(var customer in customerDetails)
-        {
-            if(model.MobileNumber==customer.MobileNumber)
+            foreach(var customer in customerDetails)
             {
-               // await JSRuntime.InvokeVoidAsync("alert", "Customer Already Exist (IF)");
-                break;
-            }
-            else
-            {
-                SqlParameter[] parameters = new SqlParameter[]
-            {
+                if(model.MobileNumber==customer.MobileNumber)
+                {
+                    // await JSRuntime.InvokeVoidAsync("alert", "Customer Already Exist (IF)");
+                    break;
+                }
+                else
+                {
+                    SqlParameter[] parameters = new SqlParameter[]
+                {
                 new SqlParameter("@CustomerName", model.CustomerName),
                 new SqlParameter("@Address", model.Address),
                 new SqlParameter("@MobileNumber", model.MobileNumber)
-            };
-                await DalCrud.Manipulate("AddCustomerDetails",parameters);
-                //await JSRuntime.InvokeVoidAsync("alert", "Customer Added Successfuly(Else)");
-                break;
+                };
+                    await DalCrud.Manipulate("AddCustomerDetails",parameters);
+                    //await JSRuntime.InvokeVoidAsync("alert", "Customer Added Successfuly(Else)");
+                    break;
+                }
             }
-        }
         }
     }
     private async Task AddQuotationDetail(QuotationDetails model)

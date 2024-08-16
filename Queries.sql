@@ -237,11 +237,9 @@ CREATE PROCEDURE AddTurkProfilDetails
     @ProfileFunction NVARCHAR(100),
     @WhiteWithoutGasket FLOAT,
     @WhiteWithGasket FLOAT,
-    @BlackSolidColor FLOAT,
-    @Message NVARCHAR(100) OUTPUT
+    @BlackSolidColor FLOAT
 AS
 BEGIN
-    BEGIN
     INSERT INTO TurkProfilDetails (ProfileCode, ProfileFunction, WhiteWithoutGasket, WhiteWithGasket, BlackSolidColor)
     VALUES (@ProfileCode, @ProfileFunction, @WhiteWithoutGasket, @WhiteWithGasket, @BlackSolidColor);
 END

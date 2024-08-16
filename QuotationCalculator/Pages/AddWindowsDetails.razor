@@ -49,7 +49,6 @@
                 new SqlParameter("@Rate", windowDetails.Rate),
             };
             await DalCrud.Manipulate("AddWindowDetails", parameters);
-            DalWindowDetails.AddWindowDetails(windowDetails);
             await JSRuntime.InvokeVoidAsync("alert", "Added Successfully");
             windowDetails = new WindowDetails();
         }
