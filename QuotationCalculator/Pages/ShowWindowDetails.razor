@@ -11,7 +11,6 @@
         <tr>
             <th>Id</th>
             <th>Type</th>
-            <th>Rate</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +19,6 @@
             <tr>
                 <td>@window.WindowsId</td>
                 <td>@window.Type</td>
-                <td>@window.Rate</td>
                 <AuthorizeView Roles="Admin">
                     <Authorized>
                 <button @onclick="() => DeleteWindowDetail(window)" class="btn btn-bin">
