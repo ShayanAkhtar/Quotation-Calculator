@@ -186,17 +186,17 @@
                                 <h5 class="card-title">Fixed Window</h5>
                                 <div class="form-group">
                                     <label for="width">Width</label>
-                                    <input type="text" id="width" class="form-control" value="@(totalWidth*2)" readonly />
+                                    <input type="text" id="width" class="form-control" value="@(fixTotalWidth*2)" readonly />
                                 </div>
                                 <div class="form-group">
                                     <label for="height">Height</label>
-                                    <input type="text" id="height" class="form-control" value="@(totalHeight*2)" readonly />
+                                    <input type="text" id="height" class="form-control" value="@(fixTotalHeight*2)" readonly />
                                 </div>
                                 @if (company != null && company.CompanyName == "SkyPenDetails")
                                 {
                                     <div class="form-group select-group">
                                         <label for="profiles">Select Profile</label>
-                                        <select name="profiles" @onchange="OnProfileChanged">
+                                        <select name="profiles" @onchange="OnFixProfileChanged">
                                             <option value="" selected disabled hidden>Select a Profile</option>
                                             <option value="601.1,605.1">Openable Frame 60mm/Openable Beading 5mm</option>
                                             <option value="601.1,605.3">Openable Frame 60mm/Openable Beading 12mm</option>
@@ -215,7 +215,83 @@
                                 {
                                     <div class="form-group select-group">
                                         <label for="profiles">Select Profile</label>
-                                        <select name="profiles" @onchange="OnProfileChanged">
+                                        <select name="profiles" @onchange="OnFixProfileChanged">
+                                            <option value="" selected disabled hidden>Select a Profile</option>
+                                            @foreach (var profile in turkProfilDetails)
+                                            {
+                                                <option value="@profile.ProfileCode">@profile.ProfileFunction</option>
+                                            }
+                                        </select>
+                                    </div>
+                                }
+                                <div class="form-group select-group">
+                                    <label for="GlassSelection">Select Glass</label>
+                                    <select id="GlassSelection" @onchange="OnGlassChanged">
+                                        <option value="0" selected disabled hidden>Select a Glass</option>
+                                        @foreach (var glass in glassList)
+                                        {
+                                            <option value="@glass.GId">@glass.GColor - Rate: @glass.Rate, Thickness: @glass.Thickness</option>
+                                        }
+                                    </select>
+                                </div>
+                                @if (fixShowPrice)
+                                {
+                                    <div class="form-group">
+                                        <label>Total Price (Before Misc Charges):</label>
+                                        <input type="text" class="form-control" value="@($"Rs {fixTotalPrice:N2}")" readonly />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Total Price (After Misc Charges):</label>
+                                        <input type="text" class="form-control" value="@($"Rs {fixTotalPriceInc:N2}")" readonly />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Price Per Sqft:</label>
+                                        <input type="text" class="form-control" value="@($"Rs {fixTotalPricePerSquareFeet:N2}")" readonly />
+                                    </div>
+
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="form-group">
+                    @if (showOpenableTypeCard)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Openable Window</h5>
+                                <div class="form-group">
+                                    <label for="width">Width</label>
+                                    <input type="text" id="width" class="form-control" value="@(openableTotalWidth*2)" readonly />
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height</label>
+                                    <input type="text" id="height" class="form-control" value="@(openableTotalHeight*2)" readonly />
+                                </div>
+                                @if (company != null && company.CompanyName == "SkyPenDetails")
+                                {
+                                    <div class="form-group select-group">
+                                        <label for="profiles">Select Profile</label>
+                                        <select name="profiles" @onchange="OnFixProfileChanged">
+                                            <option value="" selected disabled hidden>Select a Profile</option>
+                                            <option value="601.1,605.1">Openable Frame 60mm/Openable Beading 5mm</option>
+                                            <option value="601.1,605.3">Openable Frame 60mm/Openable Beading 12mm</option>
+                                            <option value="601.1,605.4">Openable Frame 60mm/Openable Beading 16mm</option>
+                                            <option value="601.1,605.5">Openable Frame 60mm/Openable Beading 20mm</option>
+                                            <option value="601.2,605.12">Frame Royal(3 Chamber) 60mm/Openable Beading 5mm ROYAL</option>
+                                            <option value="601.2,605.6">Frame Royal(3 Chamber) 60mm/Openable Beading 24mm ROYAL</option>
+                                            <option value="601.3,605.12">Frame Royal(5 Chamber) 60mm/Openable Beading 5mm ROYAL</option>
+                                            <option value="601.3,605.6">Frame Royal(5 Chamber) 60mm/Openable Beading 24mm ROYAL</option>
+
+                                        </select>
+                                    </div>
+
+                                }
+                                @if (company != null && company.CompanyName == "TurkProfilDetails")
+                                {
+                                    <div class="form-group select-group">
+                                        <label for="profiles">Select Profile</label>
+                                        <select name="profiles" @onchange="OnFixProfileChanged">
                                             <option value="" selected disabled hidden>Select a Profile</option>
                                             @foreach (var profile in turkProfilDetails)
                                             {
@@ -239,24 +315,24 @@
                     }
                 </div>
                 <div class="form-group">
-                    @if (showOpenableTypeCard)
+                    @if (showSlidingTypeCard)
                     {
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Openable Window</h5>
+                                <h5 class="card-title">Sliding Window</h5>
                                 <div class="form-group">
                                     <label for="width">Width</label>
-                                    <input type="text" id="width" class="form-control" value="@(totalWidth*2)" readonly />
+                                    <input type="text" id="width" class="form-control" value="@(slidingTotalWidth*2)" readonly />
                                 </div>
                                 <div class="form-group">
                                     <label for="height">Height</label>
-                                    <input type="text" id="height" class="form-control" value="@(totalHeight*2)" readonly />
+                                    <input type="text" id="height" class="form-control" value="@(slidingTotalHeight*2)" readonly />
                                 </div>
                                 @if (company != null && company.CompanyName == "SkyPenDetails")
                                 {
                                     <div class="form-group select-group">
                                         <label for="profiles">Select Profile</label>
-                                        <select name="profiles" @onchange="OnProfileChanged">
+                                        <select name="profiles" @onchange="OnFixProfileChanged">
                                             <option value="" selected disabled hidden>Select a Profile</option>
                                             <option value="601.1,605.1">Openable Frame 60mm/Openable Beading 5mm</option>
                                             <option value="601.1,605.3">Openable Frame 60mm/Openable Beading 12mm</option>
@@ -275,7 +351,7 @@
                                 {
                                     <div class="form-group select-group">
                                         <label for="profiles">Select Profile</label>
-                                        <select name="profiles" @onchange="OnProfileChanged">
+                                        <select name="profiles" @onchange="OnFixProfileChanged">
                                             <option value="" selected disabled hidden>Select a Profile</option>
                                             @foreach (var profile in turkProfilDetails)
                                             {
@@ -356,13 +432,27 @@
     private CompanyDetails company = new CompanyDetails();
 
     private int selectedCompanyId;
+    private string selectedGasketOption;
     private int selectedWindowId { get; set; }
     private int selectedGlassId { get; set; }
-    private float selectedProfileId{ get; set; }
+    private float selectedFrameId{ get; set; }
     private float selectedBeadingId{ get; set; }
-    private double totalHeight;
-    private double totalWidth;
-    private string selectedGasketOption;
+    private double fixTotalHeight;
+    private double fixTotalWidth;
+    private float fixTotalPrice;
+    private float fixTotalPriceInc;
+    private bool fixShowPrice;
+    private float fixHardwareTotalPrice;
+    private float fixBeadingPerUnitPrice;
+    private float fixFramePerUnitPrice;
+    private float fixTotalHeightAndWidth;
+    private float fixTotalSquareFeet;
+    private float fixTotalPricePerSquareFeet;
+
+    private double openableTotalHeight;
+    private double openableTotalWidth;
+    private double slidingTotalHeight;
+    private double slidingTotalWidth;
 
     //Flags
     private bool showMaterialSelection = false;
@@ -380,9 +470,11 @@
     private List<CompanyDetails> companiesList = new List<CompanyDetails>();
 
     //Functions
-    private float CalculateSQFT(float w,float h)
+    private float CalculateSQFT(float w,float h,float qty)
     {
-        return (w * h) / 144;
+        double width = (double)w;
+        double height = (double)h;
+        return (float)(((Math.Ceiling(width/ 12) * Math.Ceiling(height / 12))))*qty;
     }
     private float CalculateStandard(float  orignalValue,int standard)
     {
@@ -446,34 +538,51 @@
         newItem.WindowsId = window.WindowsId;
         newItem.GlassRate = glassDetails.Rate;
         newItem.WindowsRate = window.Rate;
-        newItem.SQFT = CalculateSQFT(newItem.Width, newItem.Height);
+        newItem.SQFT = CalculateSQFT(newItem.Width, newItem.Height,newItem.QTY);
         newItem.W3 = CalculateStandard(newItem.Width, 3);
         newItem.H3 = CalculateStandard(newItem.Height, 3);
         newItem.W6 = CalculateStandard(newItem.Width, 6);
         newItem.H6 = CalculateStandard(newItem.Height, 6);
-        newItem.SQFT3 = CalculateSQFT(newItem.W3, newItem.H3);
-        newItem.SQFT6 = CalculateSQFT(newItem.W6, newItem.H6);
+        newItem.SQFT3 = CalculateSQFT(newItem.W3, newItem.H3,newItem.QTY);
+        newItem.SQFT6 = CalculateSQFT(newItem.W6, newItem.H6,newItem.QTY);
         newItem.WindowsAmount=(newItem.SQFT3*100)*newItem.QTY;
         newItem.GlassAmount = (newItem.SQFT3 * 200)*newItem.QTY;
     }
+    private void UpdateCards()
+    {
+        if(window.Type=="Openable")
+        {
+            openableTotalWidth += Math.Ceiling(newItem.Width / 12) * newItem.QTY;
+            openableTotalHeight += Math.Ceiling(newItem.Height / 12) * newItem.QTY;
+            showOpenableTypeCard = true;
+        }
+        else if (window.Type == "Fix")
+        {
+            fixTotalHeight += Math.Ceiling(newItem.Height / 12) * newItem.QTY;
+            fixTotalWidth += Math.Ceiling(newItem.Width / 12) * newItem.QTY;
+            fixTotalSquareFeet += newItem.SQFT;
+            fixTotalHeightAndWidth = (float)(fixTotalHeight + fixTotalWidth) * 2;
+            fixHardwareTotalPrice += 1000*newItem.QTY;
+            fixTotalPrice = (fixTotalHeightAndWidth * fixFramePerUnitPrice) + (fixTotalHeightAndWidth * fixBeadingPerUnitPrice);
+            fixTotalPriceInc = fixTotalPrice + (150 * fixTotalSquareFeet) + fixHardwareTotalPrice;
+            fixTotalPricePerSquareFeet = fixTotalPriceInc / fixTotalSquareFeet;
+            showFixedTypeCard = true;
+        }
+        else if (window.Type == "Sliding")
+        {
+            slidingTotalHeight += Math.Ceiling(newItem.Height / 12) * newItem.QTY;
+            slidingTotalWidth += Math.Ceiling(newItem.Width / 12) * newItem.QTY;
+            showSlidingTypeCard = true;
+        }
+    }
     private void AddItemToList()
     {
-
         HandleGlassSelection();
         HandleWindowSelection();
         CalculateAllValues();
-        totalHeight +=Math.Ceiling(newItem.Height/12)*newItem.QTY;
-        totalWidth += Math.Ceiling(newItem.Width/12) * newItem.QTY;
+        UpdateCards();
         showMaterialSelection = true;
 
-        if (window.Type == "Fix")
-        {
-            showFixedTypeCard = true;
-        }
-        else if (window.Type == "Openable")
-        {
-            showOpenableTypeCard = true;
-        }
         if (window.Type == null || newItem.Width == 0 || newItem.Height == 0 || newItem.Glass == null
             || customer.MobileNumber==0
             || string.IsNullOrEmpty(customer.CustomerName))
@@ -530,9 +639,16 @@
     private void DeleteItem(ItemDetails item)
     {
         quotation.Items.Remove(item);
-        totalHeight -= (item.Height * item.QTY);
-        totalWidth -= (item.Width * item.QTY);
-        if(totalHeight==0 || totalWidth==0)
+        fixTotalHeight -= Math.Ceiling(item.Height/12) * item.QTY;
+        fixTotalWidth -= Math.Ceiling(item.Width/12) * item.QTY;
+        fixTotalSquareFeet -= item.SQFT;
+        fixTotalHeightAndWidth = (float)(fixTotalHeight + fixTotalWidth) * 2;
+        fixHardwareTotalPrice -= 1000*item.QTY;
+        fixTotalPrice = (fixTotalHeightAndWidth * fixFramePerUnitPrice) + (fixTotalHeightAndWidth * fixBeadingPerUnitPrice);
+        fixTotalPriceInc = fixTotalPrice + (150 * fixTotalSquareFeet) + fixHardwareTotalPrice;
+        fixTotalPricePerSquareFeet = fixTotalPriceInc / fixTotalSquareFeet;
+
+        if(fixTotalHeight==0 || fixTotalWidth==0)
         {
             showMaterialSelection = false;
         }
@@ -548,14 +664,19 @@
         selectedGlassId = int.Parse(e.Value.ToString());
         glassDetails = glassList.FirstOrDefault(g => g.GId == selectedGlassId);
     }
-    private void OnProfileChanged(ChangeEventArgs e)
+    private void OnFixProfileChanged(ChangeEventArgs e)
     {
-        var values = e.Value?.ToString()?.Split(','); 
-
-        selectedProfileId = float.Parse(values[0]);
+        var values = e.Value?.ToString()?.Split(',');
+        fixShowPrice = true;
+        selectedFrameId = float.Parse(values[0]);
         selectedBeadingId = float.Parse(values[1]);
-        JSRuntime.InvokeVoidAsync("alert", selectedProfileId);
-        JSRuntime.InvokeVoidAsync("alert", selectedBeadingId);
+        fixFramePerUnitPrice = DalSkyPenDetails.GetWhiteWithTPVGasket(selectedFrameId);
+        fixBeadingPerUnitPrice = DalSkyPenDetails.GetWhiteWithTPVGasket(selectedBeadingId);
+         fixTotalHeightAndWidth = (float)(fixTotalHeight + fixTotalWidth)*2;
+        fixTotalPrice = (fixTotalHeightAndWidth * fixFramePerUnitPrice) + (fixTotalHeightAndWidth * fixBeadingPerUnitPrice);
+        fixTotalPriceInc = fixTotalPrice + (150 * fixTotalSquareFeet) + fixHardwareTotalPrice;
+        fixTotalPricePerSquareFeet = fixTotalPriceInc / fixTotalSquareFeet;
+
 
     }
     private void OnGasketOptionChanged(ChangeEventArgs e)

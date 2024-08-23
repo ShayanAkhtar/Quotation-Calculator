@@ -267,7 +267,7 @@ END
 --Create SkyPen Table
 CREATE TABLE SkyPen (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    ProfileCode FLOAT,
+    ProfileCode DECIMAL(10,2),
     ProfileFunction NVARCHAR(100),
     WhiteWithoutGasket FLOAT,
     WhiteWithCoexGasket FLOAT,
@@ -285,13 +285,13 @@ CREATE PROCEDURE AddSkyPenDetails
     @TBAndTDOWithTPVGasket FLOAT
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM SkyPen WHERE ProfileCode = @ProfileCode)
+    IF EXISTS (SELECT 1 FROM SkyPenDetails WHERE ProfileCode = @ProfileCode)
     BEGIN
         -- Record already exists, no need to proceed
         RETURN;
     END
 
-    INSERT INTO SkyPen (ProfileCode, ProfileFunction, WhiteWithoutGasket, WhiteWithCoexGasket, WhiteWithTPVGasket, TBAndTDOWithTPVGasket)
+    INSERT INTO SkyPenDetails(ProfileCode, ProfileFunction, WhiteWithoutGasket, WhiteWithCoexGasket, WhiteWithTPVGasket, TBAndTDOWithTPVGasket)
     VALUES (@ProfileCode, @ProfileFunction, @WhiteWithoutGasket, @WhiteWithCoexGasket, @WhiteWithTPVGasket, @TBAndTDOWithTPVGasket);
 END
 
@@ -300,7 +300,7 @@ CREATE PROCEDURE DeleteSkyPenDetails
     @Id INT
 AS
 BEGIN
-    DELETE FROM SkyPen
+    DELETE FROM SkyPenDetails
     WHERE Id = @Id;
 END
 
@@ -308,8 +308,22 @@ END
 CREATE PROCEDURE GetAllSkyPenDetails
 AS
 BEGIN
-    SELECT * FROM SkyPen;
+    SELECT * FROM SkyPenDetails;
 END
+
+--Create GetWhiteWithTPVGasket Procedure
+CREATE PROCEDURE GetWhiteWithTPVGasket
+    @ProfileCode Decimal(10,2)
+AS
+BEGIN
+    SELECT WhiteWithTPVGasket
+    FROM SkyPenDetails
+    WHERE ProfileCode = @ProfileCode;
+END;
+
+EXEC GetWhiteWithTPVGasket @ProfileCode = 601.1; -- Replace 123.45 with your actual ProfileCode value
+
+
 -------------------------------------------------
 
 
