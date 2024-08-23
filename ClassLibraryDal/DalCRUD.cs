@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Reflection;
 
 namespace ClassLibraryDal
 {
@@ -98,6 +99,28 @@ namespace ClassLibraryDal
 
             return dt;
         }
-
+        public static List<T> GetData<T>(string procedureName) where T : class, new()
+        {
+            List<T> data = new List<T>();
+            SqlConnection con = DbHelper.GetConnection();
+            con.Open();
+            SqlCommand cmd = new SqlCommand(procedureName, con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            Type tp = typeof(T);
+            PropertyInfo[] properties = tp.GetProperties();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                T obj = new T();
+                foreach (var property in properties)
+                {
+                    var name = property.Name;
+                    property.SetValue(obj, Convert.ChangeType(reader[$"{name}"], property.PropertyType));
+                }
+                data.Add(obj);
+            }
+            con.Close();
+            return data;
+        }
     }
 }

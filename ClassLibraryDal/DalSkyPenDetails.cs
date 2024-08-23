@@ -51,6 +51,37 @@ namespace ClassLibraryDal
 
             return profiles;
         }
+        public static float GetWhiteWithTPVGasket(float profileCode)
+        {
+            float whiteWithTPVGasket=0;
 
-    }
+            try
+            {
+                using (SqlConnection con = DbHelper.GetConnection())
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("GetWhiteWithTPVGasket", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@ProfileCode", profileCode);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                whiteWithTPVGasket = Convert.ToSingle(reader["WhiteWithTPVGasket"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception Occurred: {ex.Message}");
+            }
+
+            return whiteWithTPVGasket;
+        }
+}
 }
